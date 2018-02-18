@@ -7,10 +7,9 @@ import react.RState
 import react.dom.a
 import react.dom.div
 import react.dom.img
-import react.dom.p
 
 
-@JsModule("simple-icons/icons/githubApp.svg")
+@JsModule("simple-icons/icons/github.svg")
 external val githubLogo: dynamic
 
 /**
@@ -19,7 +18,7 @@ external val githubLogo: dynamic
 class GitHubApp : RComponent<RProps, RState>() {
   override fun RBuilder.render() {
     div("GitHub") {
-      p { +"Check out these commits!" }
+      // TODO Commit ticker that displays the latest commit created
       a(href = "https://www.githubApp.com/Waverunner") {
         img(src = githubLogo, classes = "GitHub-Logo", alt = "GitHub Logo") {}
       }
