@@ -1,0 +1,22 @@
+{
+  "name": "web-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "octicons": "^7.1.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "simple-icons": "^1.3.3"
+  },
+  "devDependencies": {
+    "npm-check": "^5.5.2",
+    "react-scripts-kotlin": "^2.1.6"
+  },
+  "scripts": {
+    "start": "react-scripts-kotlin start",
+    "build": "react-scripts-kotlin build",
+    "eject": "react-scripts-kotlin eject",
+    "gen-idea-libs": "react-scripts-kotlin gen-idea-libs",
+    "get-types": "react-scripts-kotlin get-types --dest=src/types"
+  }
+}
