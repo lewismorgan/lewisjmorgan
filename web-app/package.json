@@ -3,17 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@jetbrains/kotlin-react": "^16.4.0-pre.31",
-    "@jetbrains/kotlin-react-router-dom": "^4.2.2-pre.31",
     "octicons": "^7.3.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-router-dom": "^4.3.1",
-    "simple-icons": "^1.6.2"
+    "simple-icons": "^1.6.2",
+    "@jetbrains/kotlin-extensions": "^1.0.1-pre.31",
+    "@jetbrains/kotlin-react": "^16.4.0-pre.31",
+    "@jetbrains/kotlin-react-dom": "^16.4.0-pre.31",
+    "core-js": "^2.5.7",
+    "globby": "^8.0.1",
+    "kotlin": "^1.2.41",
+    "kotlinx-html": "^0.6.10"
   },
   "devDependencies": {
     "npm-check": "^5.7.1",
-    "react-scripts-kotlin": "^2.1.10"
+    "react-scripts-kotlin": "file:/Users/lewismorgan/dev/forks/create-react-kotlin-app/packages/react-scripts"
   },
   "scripts": {
     "start": "react-scripts-kotlin start",

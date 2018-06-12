@@ -19,7 +19,7 @@ class GitHubApp : RComponent<RProps, RState>() {
   override fun RBuilder.render() {
     div("GitHub") {
       // TODO Commit ticker that displays the latest commit created
-      a(href = "https://www.githubApp.com/Waverunner") {
+      a(href = "https://www.github.com/lewismorgan") {
         img(src = githubLogo, classes = "GitHub-Logo", alt = "GitHub Logo") {}
       }
     }
