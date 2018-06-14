@@ -1,4 +1,4 @@
-package com.lewismorgan.web.app
+package com.lewismorgan.web
 
 import react.*
 import react.dom.*
