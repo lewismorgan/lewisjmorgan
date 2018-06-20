@@ -1,6 +1,8 @@
 package com.lewismorgan.web
 
 import com.lewismorgan.web.carousel.CarouselComponent
+import com.lewismorgan.web.carousel.carousel
+import com.lewismorgan.web.carousel.carouselItem
 import kotlinx.html.BUTTON
 import kotlinx.html.MAIN
 import kotlinx.html.attributesMapOf
@@ -12,8 +14,10 @@ import react.ReactElement
 import react.dom.RDOMBuilder
 import react.dom.a
 import react.dom.div
+import react.dom.h1
 import react.dom.li
 import react.dom.nav
+import react.dom.p
 import react.dom.span
 import react.dom.tag
 import react.dom.ul
@@ -38,10 +42,19 @@ class IndexAppComponent : RComponent<RProps, RState>() {
         }
       }
     }
-
-    main("main", "main") {
+    main("", "main") {
       // TODO Create a Carousel Component, refactor this out
-      child(CarouselComponent::class) {}
+      carousel {
+        carouselItem(true) {
+          // TODO Carousel Caption Classes
+          div("container") {
+            div("carousel-caption text-left") {
+              h1 { +"Welcome." }
+              p { +"// TODO: Insert witty welcoming text here" }
+            }
+          }
+        }
+      }
     }
   }
 }
