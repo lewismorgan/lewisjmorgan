@@ -1,4 +1,4 @@
-package com.lewismorgan.web.carousel
+package com.lewismorgan.web.bootstrap.components.carousel
 
 import kotlinx.html.A
 import kotlinx.html.attributesMapOf

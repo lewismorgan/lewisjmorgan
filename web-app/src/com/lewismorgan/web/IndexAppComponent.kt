@@ -1,8 +1,7 @@
 package com.lewismorgan.web
 
-import com.lewismorgan.web.carousel.CarouselComponent
-import com.lewismorgan.web.carousel.carousel
-import com.lewismorgan.web.carousel.carouselItem
+import com.lewismorgan.web.bootstrap.components.carousel.carousel
+import com.lewismorgan.web.bootstrap.components.carousel.carouselItem
 import kotlinx.html.BUTTON
 import kotlinx.html.MAIN
 import kotlinx.html.attributesMapOf
@@ -24,13 +23,12 @@ import react.dom.ul
 
 class IndexAppComponent : RComponent<RProps, RState>() {
   override fun RBuilder.render() {
-    // TODO Create HeaderComponent
+    // TODO Create a navbar react component
     nav("navbar navbar-expand-md navbar-dark fixed-top bg-dark") {
       a(classes = "navbar-brand", href = "#") { +"Lewis' Temple" }
       navbarToggler("navbar-toggler") {
         span("navbar-toggler-icon") {}
       }
-      // TODO Add id to div
       div("collapse navbar-collapse") {
         ul("navbar-nav mr-auto") {
           li("nav-item active") {
@@ -42,8 +40,9 @@ class IndexAppComponent : RComponent<RProps, RState>() {
         }
       }
     }
+    // the main contents for the page
     main("", "main") {
-      // TODO Create a Carousel Component, refactor this out
+      // TODO Create a main page Carousel Component, refactor this out
       carousel {
         carouselItem(true) {
           // TODO Carousel Caption Classes
