@@ -1,6 +1,9 @@
 package com.lewismorgan.web
 
+import com.lewismorgan.web.bootstrap.components.carousel.CarouselComponent
+import com.lewismorgan.web.bootstrap.components.carousel.CarouselProps
 import com.lewismorgan.web.bootstrap.components.carousel.carousel
+import com.lewismorgan.web.bootstrap.components.carousel.carouselCaption
 import com.lewismorgan.web.bootstrap.components.carousel.carouselItem
 import kotlinx.html.BUTTON
 import kotlinx.html.MAIN
@@ -10,6 +13,7 @@ import react.RComponent
 import react.RProps
 import react.RState
 import react.ReactElement
+import react.buildElement
 import react.dom.RDOMBuilder
 import react.dom.a
 import react.dom.div
@@ -43,14 +47,11 @@ class IndexAppComponent : RComponent<RProps, RState>() {
     // the main contents for the page
     main("", "main") {
       // TODO Create a main page Carousel Component, refactor this out
-      carousel {
-        carouselItem(true) {
-          // TODO Carousel Caption Classes
-          div("container") {
-            div("carousel-caption text-left") {
-              h1 { +"Welcome." }
-              p { +"// TODO: Insert witty welcoming text here" }
-            }
+      carousel(0) {
+        carouselItem {
+          carouselCaption("text-left") {
+            h1 { +"Welcome." }
+            p { +"// TODO: Insert witty welcoming text here" }
           }
         }
       }
