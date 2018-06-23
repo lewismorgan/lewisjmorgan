@@ -1,47 +1,42 @@
 package com.lewismorgan.web
 
-import com.lewismorgan.web.bootstrap.components.carousel.CarouselComponent
-import com.lewismorgan.web.bootstrap.components.carousel.CarouselProps
 import com.lewismorgan.web.bootstrap.components.carousel.carousel
 import com.lewismorgan.web.bootstrap.components.carousel.carouselCaption
 import com.lewismorgan.web.bootstrap.components.carousel.carouselItem
+import com.lewismorgan.web.bootstrap.components.navbar.NavBarComponent
+import com.lewismorgan.web.bootstrap.components.navbar.navigationBar
+import com.lewismorgan.web.bootstrap.components.navbar.navigationItem
 import kotlinx.html.BUTTON
 import kotlinx.html.MAIN
 import kotlinx.html.attributesMapOf
+import org.w3c.dom.events.Event
 import react.RBuilder
 import react.RComponent
 import react.RProps
 import react.RState
 import react.ReactElement
-import react.buildElement
 import react.dom.RDOMBuilder
 import react.dom.a
-import react.dom.div
 import react.dom.h1
-import react.dom.li
-import react.dom.nav
 import react.dom.p
-import react.dom.span
 import react.dom.tag
-import react.dom.ul
 
 class IndexAppComponent : RComponent<RProps, RState>() {
   override fun RBuilder.render() {
-    // TODO Create a navbar react component
-    nav("navbar navbar-expand-md navbar-dark fixed-top bg-dark") {
-      a(classes = "navbar-brand", href = "#") { +"Lewis' Temple" }
-      navbarToggler("navbar-toggler") {
-        span("navbar-toggler-icon") {}
+    navigationBar("navbar-expand-md navbar-dark fixed-top bg-dark", "Temple of Lewis",
+        0) {
+      navigationItem("#Home", "Home") {
+        console.log("Navigating home!")
       }
-      div("collapse navbar-collapse") {
-        ul("navbar-nav mr-auto") {
-          li("nav-item active") {
-            a(classes = "nav-link", href = "#") { +"Home (current)" }
-          }
-          li("nav-item") {
-            a(classes = "nav-link", href = "#") { +"Projects" }
-          }
-        }
+      navigationItem("#Projects", "Projects") {
+        console.log("Projects page not implemented yet :[")
+        // TODO Projects window displaying some cool github project stats
+      }
+      navigationItem("https://github.com/lewismorgan", "Code") {
+        console.log("Navigating to GitHub.")
+      }
+      navigationItem("#Contact", "Contact") {
+        console.log("Contact page not implemented yet :[")
       }
     }
     // the main contents for the page
