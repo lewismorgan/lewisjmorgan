@@ -11,6 +11,11 @@
     -moz-transition: padding-top .3s, padding-bottom .3s;
     transition: padding-top .3s, padding-bottom .3s;
   }
+
+  .navbar-shrink {
+    padding-top: .25rem;
+    padding-bottom: .5rem;
+  }
 }
 
 .row {
