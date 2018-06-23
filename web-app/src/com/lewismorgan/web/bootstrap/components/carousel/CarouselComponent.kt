@@ -3,6 +3,8 @@ package com.lewismorgan.web.bootstrap.components.carousel
 import com.lewismorgan.web.misc.jsIsArray
 import kotlinx.html.A
 import kotlinx.html.attributesMapOf
+import kotlinx.html.js.onClickFunction
+import org.w3c.dom.events.Event
 import react.RBuilder
 import react.RComponent
 import react.RProps
@@ -16,6 +18,7 @@ import react.dom.li
 import react.dom.ol
 import react.dom.span
 import react.dom.tag
+import react.setState
 
 interface CarouselProps : RProps {
   var defaultActiveIndex: Int
@@ -34,10 +37,13 @@ class CarouselComponent(props: CarouselProps) : RComponent<CarouselProps, Carous
     return (nextState.activeIndex != state.activeIndex || nextProps.defaultActiveIndex != state.activeIndex)
   }
 
+  override fun componentWillUpdate(nextProps: CarouselProps, nextState: CarouselState) {
+    // TODO Use animations for transitions
+  }
+
   override fun RBuilder.render() {
     val children = getChildren()
     div("carousel slide") {
-      // TODO Recreate indicators on state change
       if (children.isNotEmpty()) {
         ol("carousel-indicators") {
           for (i in 0 until children.size) {
@@ -57,13 +63,22 @@ class CarouselComponent(props: CarouselProps) : RComponent<CarouselProps, Carous
         }
       }
 
-      // TODO Onclick go to previous item by changing state's index to -1
       carouselButton("carousel-control-prev") {
+        attrs.onClickFunction = activateItem(state.activeIndex - 1)
         span("carousel-control-prev-icon") {}
       }
-      // TODO Onclick go to next item by changing states index to +1
+
       carouselButton("carousel-control-next") {
+        attrs.onClickFunction = activateItem(state.activeIndex + 1)
         span("carousel-control-next-icon") {}
+      }
+    }
+  }
+
+  private fun activateItem(index: Int): (Event) -> Unit = {
+    if (index >= 0 && index < getChildren().size) {
+      setState {
+        activeIndex = index
       }
     }
   }
@@ -72,6 +87,7 @@ class CarouselComponent(props: CarouselProps) : RComponent<CarouselProps, Carous
     return if (jsIsArray(props.children)) {
       props.children.unsafeCast<Array<ReactElement>>()
     } else {
+      // If there is a single element, it's not known as an array just an object
       arrayOf(props.children.unsafeCast<ReactElement>())
     }
   }

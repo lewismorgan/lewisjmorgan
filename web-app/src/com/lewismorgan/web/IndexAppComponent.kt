@@ -46,12 +46,17 @@ class IndexAppComponent : RComponent<RProps, RState>() {
     }
     // the main contents for the page
     main("", "main") {
-      // TODO Create a main page Carousel Component, refactor this out
       carousel(0) {
         carouselItem {
           carouselCaption("text-left") {
             h1 { +"Welcome." }
             p { +"// TODO: Insert witty welcoming text here" }
+          }
+        }
+        carouselItem {
+          carouselCaption("") {
+            h1 { +""""Do. Or do not. There is no try."""" }
+            p { +"- Master Yoda (The Empire Strikes Back)" }
           }
         }
       }
