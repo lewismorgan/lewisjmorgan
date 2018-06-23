@@ -9,43 +9,80 @@ import com.lewismorgan.web.bootstrap.components.nav.navbarBranding
 import com.lewismorgan.web.bootstrap.components.nav.navbarCollapsible
 import com.lewismorgan.web.bootstrap.components.nav.navbarToggler
 import com.lewismorgan.web.bootstrap.components.nav.navigationItem
-import kotlinx.html.MAIN
-import kotlinx.html.attributesMapOf
 import react.RBuilder
 import react.RComponent
 import react.RProps
 import react.RState
-import react.ReactElement
-import react.dom.RDOMBuilder
+import react.dom.div
+import react.dom.footer
 import react.dom.h1
+import react.dom.h2
+import react.dom.h4
+import react.dom.header
+import react.dom.li
 import react.dom.p
+import react.dom.section
+import react.dom.small
 import react.dom.span
-import react.dom.tag
+import react.dom.ul
 
 class IndexAppComponent : RComponent<RProps, RState>() {
   override fun RBuilder.render() {
-    navbar("navbar-expand-md navbar-dark fixed-top bg-dark", 0) {
-      navbarBranding("#Home") { +"Lewis' Temple" }
-      navbarToggler { span("navbar-toggler-icon") {} }
-      navbarCollapsible {
-        navComponent {
-          navigationItem("#Home", "Home") {
-            console.log("Navigating home!")
-          }
-          navigationItem("#Projects", "Projects") {
-
-          }
-          navigationItem("https://github.com/lewismorgan", "Code") {
-            console.log("Navigating to GitHub.")
-          }
-          navigationItem("#Contact", "Contact") {
-            console.log("Contact page not implemented yet :[")
+    // Navigation
+    navbar("navbar-expand-lg navbar-dark fixed-top bg-dark", 0) {
+      div("container") {
+        navbarBranding("#Home") { +"Lewis' Temple" }
+        navbarToggler { span("navbar-toggler-icon") {} }
+        navbarCollapsible {
+          navComponent {
+            navigationItem("#Home", "Home") {
+              // TODO Navigate to top of page
+            }
+            navigationItem("#Projects", "Projects") {
+              // TODO Navigate to Projects
+            }
+            navigationItem("#Education", "Education") {
+              // TODO Navigate to Education
+            }
+            navigationItem("#Contact", "Contact") {
+              // TODO Navigate to Contact
+            }
           }
         }
       }
     }
-    // the main contents for the page
-    main("", "main") {
+    renderHeader()
+    // the main contents for website
+    renderSections()
+    renderFooter()
+    div("copyright text-center py-4 bg-dark text-white") {
+      div("container") {
+        small {
+          +"Copyright © Lewis Morgan 2018. Source is available on GitHub."
+        }
+      }
+    }
+  }
+
+  private fun RBuilder.renderSections() {
+    renderWelcomeSection()
+    renderProjectsSection()
+    renderEduSection()
+    renderContactSection()
+  }
+
+  private fun RBuilder.renderHeader() {
+    header("masthead bg-primary text-center") {
+      div("container") {
+        h1 { +"Lewis Morgan" }
+        h2 { +"> Eat. > Sleep. > Code." }
+      }
+    }
+  }
+
+  private fun RBuilder.renderWelcomeSection() {
+    section {
+      attrs["id"] = "welcome-carousel"
       carousel(0) {
         carouselItem {
           carouselCaption("text-left") {
@@ -62,6 +99,51 @@ class IndexAppComponent : RComponent<RProps, RState>() {
       }
     }
   }
-}
 
-inline fun RBuilder.main(classes: String? = null, role: String? = null, block: RDOMBuilder<MAIN>.() -> Unit): ReactElement = tag(block) { MAIN(attributesMapOf("class", classes, "role", role), it) }
+  private fun RBuilder.renderProjectsSection() {
+    section {
+      attrs["id"] = "projects"
+      div("container") {
+        // TODO Add Projects grid / github component
+      }
+    }
+  }
+
+  private fun RBuilder.renderEduSection() {
+    section {
+      attrs["id"] = "education"
+      div("container") {
+        // TODO Add education component
+      }
+    }
+  }
+
+  private fun RBuilder.renderContactSection() {
+    section {
+      attrs["id"] = "contact"
+      div("container") {
+        // TODO Add contact component
+      }
+    }
+  }
+
+  private fun RBuilder.renderFooter() {
+    footer("footer text-center") {
+      div("container") {
+        div("row justify-content-md-center") {
+          div("col") {
+            h4 { +"Location" }
+            p { +"Tampa, Florida" }
+          }
+          div("col") {
+            h4 { +"Social" }
+            ul("list-inline") {
+              li("list-inline-item") { +"Facebook" }
+              li("list-inline-item") { +"Twitter" }
+            }
+          }
+        }
+      }
+    }
+  }
+}
