@@ -26,7 +26,7 @@ import react.dom.small
 import react.dom.span
 import react.dom.ul
 
-class IndexAppComponent : RComponent<RProps, RState>() {
+class WebsiteComponent : RComponent<RProps, RState>() {
   override fun RBuilder.render() {
     // Navigation
     navbar("navbar-expand-lg navbar-dark fixed-top bg-dark", 0) {
@@ -83,11 +83,11 @@ class IndexAppComponent : RComponent<RProps, RState>() {
   private fun RBuilder.renderWelcomeSection() {
     section {
       attrs["id"] = "welcome-carousel"
-      carousel(0) {
+      carousel(1) {
         carouselItem {
           carouselCaption("text-left") {
             h1 { +"Welcome." }
-            p { +"// TODO: Insert witty welcoming text here" }
+            p { +"// TODO: Insert some welcoming text." }
           }
         }
         carouselItem {

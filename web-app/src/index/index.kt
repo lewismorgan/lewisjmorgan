@@ -1,6 +1,6 @@
 package index
 
-import com.lewismorgan.web.IndexAppComponent
+import com.lewismorgan.web.WebsiteComponent
 import kotlinext.js.require
 import kotlinext.js.requireAll
 import react.dom.render
@@ -12,7 +12,7 @@ fun main(args: Array<String>) {
   require("bootstrap/dist/css/bootstrap.css")
   requireAll(require.context("src", true, js("/\\.css$/")))
   render(document.getElementById("root")) {
-    child(IndexAppComponent::class) {}
+    child(WebsiteComponent::class) {}
     script(src = "jquery/dist/jquery.slim.min.js") {}
     script(src = "popper.js/dist/popper.min.js") {}
     script(src = "bootstrap/dist/js/bootstrap.min.js") {}

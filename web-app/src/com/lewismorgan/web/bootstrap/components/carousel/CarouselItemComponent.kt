@@ -30,6 +30,6 @@ fun RBuilder.carouselItem(block: RBuilder.() -> Unit): ReactElement {
   }
 }
 
-fun RBuilder.carouselCaption(classes: String, block: RBuilder.() -> ReactElement): ReactElement {
+fun RBuilder.carouselCaption(classes: String, block: RBuilder.() -> Unit): ReactElement {
   return div("carousel-caption $classes") { block() }
 }
