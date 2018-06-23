@@ -1,6 +1,6 @@
 package com.lewismorgan.web.bootstrap.components.carousel
 
-import com.lewismorgan.web.misc.jsIsArray
+import com.lewismorgan.web.misc.getChildren
 import kotlinx.html.A
 import kotlinx.html.attributesMapOf
 import kotlinx.html.js.onClickFunction
@@ -42,7 +42,7 @@ class CarouselComponent(props: CarouselProps) : RComponent<CarouselProps, Carous
   }
 
   override fun RBuilder.render() {
-    val children = getChildren()
+    val children = this@CarouselComponent.getChildren()
     div("carousel slide") {
       if (children.isNotEmpty()) {
         ol("carousel-indicators") {
@@ -80,15 +80,6 @@ class CarouselComponent(props: CarouselProps) : RComponent<CarouselProps, Carous
       setState {
         activeIndex = index
       }
-    }
-  }
-
-  private fun getChildren(): Array<ReactElement> {
-    return if (jsIsArray(props.children)) {
-      props.children.unsafeCast<Array<ReactElement>>()
-    } else {
-      // If there is a single element, it's not known as an array just an object
-      arrayOf(props.children.unsafeCast<ReactElement>())
     }
   }
 }
