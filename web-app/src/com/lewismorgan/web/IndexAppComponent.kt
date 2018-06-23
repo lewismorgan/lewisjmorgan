@@ -4,10 +4,10 @@ import com.lewismorgan.web.bootstrap.components.carousel.carousel
 import com.lewismorgan.web.bootstrap.components.carousel.carouselCaption
 import com.lewismorgan.web.bootstrap.components.carousel.carouselItem
 import com.lewismorgan.web.bootstrap.components.nav.navComponent
+import com.lewismorgan.web.bootstrap.components.nav.navbar
 import com.lewismorgan.web.bootstrap.components.nav.navbarBranding
 import com.lewismorgan.web.bootstrap.components.nav.navbarCollapsible
 import com.lewismorgan.web.bootstrap.components.nav.navbarToggler
-import com.lewismorgan.web.bootstrap.components.nav.navbar
 import com.lewismorgan.web.bootstrap.components.nav.navigationItem
 import kotlinx.html.MAIN
 import kotlinx.html.attributesMapOf
@@ -33,7 +33,7 @@ class IndexAppComponent : RComponent<RProps, RState>() {
             console.log("Navigating home!")
           }
           navigationItem("#Projects", "Projects") {
-            console.log("Projects page not implemented yet :[")
+
           }
           navigationItem("https://github.com/lewismorgan", "Code") {
             console.log("Navigating to GitHub.")
@@ -44,7 +44,6 @@ class IndexAppComponent : RComponent<RProps, RState>() {
         }
       }
     }
-
     // the main contents for the page
     main("", "main") {
       carousel(0) {
