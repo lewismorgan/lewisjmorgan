@@ -1,5 +1,6 @@
 package com.lewismorgan.web.bootstrap.components.carousel
 
+import com.lewismorgan.web.misc.jsIsArray
 import kotlinx.html.A
 import kotlinx.html.attributesMapOf
 import react.RBuilder
@@ -8,6 +9,7 @@ import react.RProps
 import react.RState
 import react.ReactElement
 import react.children
+import react.cloneElement
 import react.dom.RDOMBuilder
 import react.dom.div
 import react.dom.li
@@ -28,16 +30,8 @@ class CarouselComponent(props: CarouselProps) : RComponent<CarouselProps, Carous
     activeIndex = props.defaultActiveIndex
   }
 
-  override fun componentWillMount() {
-  }
-
   override fun shouldComponentUpdate(nextProps: CarouselProps, nextState: CarouselState): Boolean {
-    return (nextState.activeIndex != state.activeIndex
-        || nextProps.defaultActiveIndex != state.activeIndex)
-  }
-
-  override fun componentWillUpdate(nextProps: CarouselProps, nextState: CarouselState) {
-    console.log("WILL UPDATE COMPONENT")
+    return (nextState.activeIndex != state.activeIndex || nextProps.defaultActiveIndex != state.activeIndex)
   }
 
   override fun RBuilder.render() {
@@ -46,16 +40,20 @@ class CarouselComponent(props: CarouselProps) : RComponent<CarouselProps, Carous
       // TODO Recreate indicators on state change
       if (children.isNotEmpty()) {
         ol("carousel-indicators") {
-          console.log("Creating", children, "list items")
           for (i in 0 until children.size) {
-            console.log("created a li")
-            li("active") { }
+            li(if (i == state.activeIndex) "active" else "") { }
           }
         }
       }
       if (children.isNotEmpty()) {
         div("carousel-inner") {
-          children()
+          for (i in 0 until children.size) {
+            // ReactElements are immutable, so gotta clone
+            val toClone = children[i]
+            child(cloneElement<CarouselItemProps>(toClone, toClone.props.children, props = {
+              this.isActive = (state.activeIndex == i)
+            }))
+          }
         }
       }
 
@@ -71,10 +69,11 @@ class CarouselComponent(props: CarouselProps) : RComponent<CarouselProps, Carous
   }
 
   private fun getChildren(): Array<ReactElement> {
-    console.log("children type:", jsTypeOf(props.children))
-    return if (jsTypeOf(props.children) == "object") {
+    return if (jsIsArray(props.children)) {
+      props.children.unsafeCast<Array<ReactElement>>()
+    } else {
       arrayOf(props.children.unsafeCast<ReactElement>())
-    } else props.children.unsafeCast<Array<ReactElement>>()
+    }
   }
 }
 
