@@ -1,8 +1,10 @@
 package com.lewismorgan.web
 
-import com.lewismorgan.web.carousel.CarouselComponent
-import com.lewismorgan.web.carousel.carousel
-import com.lewismorgan.web.carousel.carouselItem
+import com.lewismorgan.web.bootstrap.components.carousel.CarouselComponent
+import com.lewismorgan.web.bootstrap.components.carousel.CarouselProps
+import com.lewismorgan.web.bootstrap.components.carousel.carousel
+import com.lewismorgan.web.bootstrap.components.carousel.carouselCaption
+import com.lewismorgan.web.bootstrap.components.carousel.carouselItem
 import kotlinx.html.BUTTON
 import kotlinx.html.MAIN
 import kotlinx.html.attributesMapOf
@@ -11,6 +13,7 @@ import react.RComponent
 import react.RProps
 import react.RState
 import react.ReactElement
+import react.buildElement
 import react.dom.RDOMBuilder
 import react.dom.a
 import react.dom.div
@@ -24,13 +27,12 @@ import react.dom.ul
 
 class IndexAppComponent : RComponent<RProps, RState>() {
   override fun RBuilder.render() {
-    // TODO Create HeaderComponent
+    // TODO Create a navbar react component
     nav("navbar navbar-expand-md navbar-dark fixed-top bg-dark") {
       a(classes = "navbar-brand", href = "#") { +"Lewis' Temple" }
       navbarToggler("navbar-toggler") {
         span("navbar-toggler-icon") {}
       }
-      // TODO Add id to div
       div("collapse navbar-collapse") {
         ul("navbar-nav mr-auto") {
           li("nav-item active") {
@@ -42,16 +44,19 @@ class IndexAppComponent : RComponent<RProps, RState>() {
         }
       }
     }
+    // the main contents for the page
     main("", "main") {
-      // TODO Create a Carousel Component, refactor this out
-      carousel {
-        carouselItem(true) {
-          // TODO Carousel Caption Classes
-          div("container") {
-            div("carousel-caption text-left") {
-              h1 { +"Welcome." }
-              p { +"// TODO: Insert witty welcoming text here" }
-            }
+      carousel(0) {
+        carouselItem {
+          carouselCaption("text-left") {
+            h1 { +"Welcome." }
+            p { +"// TODO: Insert witty welcoming text here" }
+          }
+        }
+        carouselItem {
+          carouselCaption("") {
+            h1 { +""""Do. Or do not. There is no try."""" }
+            p { +"- Master Yoda (The Empire Strikes Back)" }
           }
         }
       }
