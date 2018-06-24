@@ -19,10 +19,8 @@ import react.dom.a
 import react.dom.div
 import react.dom.footer
 import react.dom.h1
-import react.dom.h2
 import react.dom.h3
 import react.dom.h4
-import react.dom.hr
 import react.dom.header
 import react.dom.li
 import react.dom.p
