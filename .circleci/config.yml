@@ -9,11 +9,11 @@ jobs:
       # same version as netlify version
       - image: circleci/node:8.11
 
-    working_directory: ~/repo/web-app
+    working_directory: ~/repo
 
     steps:
       - checkout
-
+      - run: cd web-app
       # Download and cache dependencies
       - restore_cache:
           keys:
