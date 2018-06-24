@@ -29,9 +29,9 @@ import react.dom.ul
 class WebsiteComponent : RComponent<RProps, RState>() {
   override fun RBuilder.render() {
     // Navigation
-    navbar("navbar-expand-lg navbar-dark fixed-top bg-dark", 0) {
+    navbar("navbar-expand-lg navbar-dark fixed-top bg-dark", true) {
       div("container") {
-        navbarBranding("#Home") { +"Lewis' Temple" }
+        navbarBranding("#Home") { +"Don't Get Lost -->" }
         navbarToggler { span("navbar-toggler-icon") {} }
         navbarCollapsible {
           navComponent {
