@@ -10,6 +10,8 @@ import com.lewismorgan.web.bootstrap.nav.navbarCollapsible
 import com.lewismorgan.web.bootstrap.nav.navbarToggler
 import com.lewismorgan.web.bootstrap.nav.navigationItem
 import kotlinx.html.DIV
+import kotlinx.html.classes
+import kotlinx.html.title
 import react.RBuilder
 import react.RComponent
 import react.RProps
@@ -22,8 +24,9 @@ import react.dom.h1
 import react.dom.h2
 import react.dom.h3
 import react.dom.h4
-import react.dom.hr
 import react.dom.header
+import react.dom.i
+import react.dom.img
 import react.dom.li
 import react.dom.p
 import react.dom.section
@@ -45,7 +48,9 @@ class WebsiteComponent : RComponent<RProps, RState>() {
   private fun RBuilder.renderNavbar() {
     navbar("navbar-expand-lg navbar-dark fixed-top bg-dark", true) {
       div("container") {
-        navbarBranding("#Home") { +"Don't Get Lost -->" }
+        navbarBranding("#Home") {
+          fontAwesome("map-marked-alt", FontAwesomeStyleType.SOLID)
+        }
         navbarToggler { span("navbar-toggler-icon") {} }
         navbarCollapsible {
           navComponent {
@@ -98,20 +103,27 @@ class WebsiteComponent : RComponent<RProps, RState>() {
   private fun RBuilder.renderHeader() {
     header("masthead bg-primary text-center") {
       div("container") {
-        h1 { +"Lewis Morgan" }
-        div("container m-2") {
-          div("m-2") {
-            fontAwesome("laptop", FontAwesomeStyleType.SOLID, FontAwesomeSize.X3)
-          }
-          h3 {
-            fontAwesome("terminal", FontAwesomeStyleType.SOLID)
-            span {
-              +" sudo rm -rf /"
+        // TODO Use gravatar to get the image
+        img("( ͡° ͜ʖ ͡°)", "/me.png") {
+          attrs.title = "( ͡° ͜ʖ ͡°)"
+          attrs.classes += "img-fluid mx-auto rounded-circle mb-3"
+        }
+        div("container") {
+          h1 { +"Lewis Morgan" }
+          ul("list-stack") {
+            li("list-stack-item") {
+              span { +"Student " }
+              fontAwesome("user-graduate", FontAwesomeStyleType.SOLID)
+            }
+            li("list-stack-item") {
+              span { +"Developer " }
+              fontAwesome("code", FontAwesomeStyleType.SOLID)
+            }
+            li("list-stack-item") {
+              span { +"Star Wars Fanatic " }
+              i("swg swg-deathstar") {}
             }
           }
-        }
-        h4 {
-          +"Student - Developer - Star Wars Fanatic"
         }
       }
     }
@@ -119,19 +131,31 @@ class WebsiteComponent : RComponent<RProps, RState>() {
 
   private fun RBuilder.renderWelcomeSection() {
     section {
-      attrs["id"] = "welcome-carousel"
-      carousel(1) {
-        carouselItem {
-          carouselCaption("text-left") {
-            h1 { +"Welcome." }
-            p { +"// TODO: Insert some welcoming text." }
-          }
+      attrs["id"] = "sw-carousel"
+      carousel(0) {
+        swCarouselQuoteItem("swg-yoda-2") {
+          h1 { +""""Do. Or do not. There is no try."""" }
+          p { +"- Master Yoda (The Empire Strikes Back)" }
         }
-        carouselItem {
-          carouselCaption("") {
-            h1 { +""""Do. Or do not. There is no try."""" }
-            p { +"- Master Yoda (The Empire Strikes Back)" }
-          }
+        swCarouselQuoteItem("swg-k2s0") {
+          h2 { +""""Half the people here wanna reprogram you...""" }
+          h2 { +""" The other half wanna put a hole in your head."""" }
+          p { +"- Jyn Erso" }
+        }
+        swCarouselQuoteItem("swg-c3po-2") {
+          h2 { +""""Sir, the possibility of successfully navigating an asteroid field is approximately 3,720 to 1."""" }
+          p { +"- C-3PO (The Empire Strikes Back)" }
+        }
+      }
+    }
+  }
+
+  private fun RBuilder.swCarouselQuoteItem(swIcon: String, captionContent: RBuilder.() -> Unit) {
+    carouselItem {
+      div("container") {
+        i("swg $swIcon swg-6x carousel-icon-item") {}
+        carouselCaption("") {
+          captionContent()
         }
       }
     }

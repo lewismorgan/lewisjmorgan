@@ -60,8 +60,3 @@ enum class FontAwesomeSize(val value: String) {
   X7("fa-7x"),
   X10("fa-10x")
 }
-
-enum class FontAwesomeUseType(val useClass: String) {
-  UL("fa-ul"),
-  LI("fa-li")
-}
