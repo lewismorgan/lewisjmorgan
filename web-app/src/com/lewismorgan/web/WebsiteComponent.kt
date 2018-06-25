@@ -21,6 +21,7 @@ import react.dom.a
 import react.dom.div
 import react.dom.footer
 import react.dom.h1
+import react.dom.h2
 import react.dom.h3
 import react.dom.h4
 import react.dom.header
@@ -130,25 +131,31 @@ class WebsiteComponent : RComponent<RProps, RState>() {
 
   private fun RBuilder.renderWelcomeSection() {
     section {
-      attrs["id"] = "welcome-carousel"
-      carousel(1) {
-        carouselItem {
-          div("container") {
-            fontAwesome("list", FontAwesomeStyleType.SOLID, FontAwesomeSize.DEFAULT, "carousel-icon-item") {}
-            carouselCaption("text-left") {
-              h1 { +"Welcome" }
-              p { +"// TODO: Insert some welcoming text." }
-            }
-          }
+      attrs["id"] = "sw-carousel"
+      carousel(0) {
+        swCarouselQuoteItem("swg-yoda-2") {
+          h1 { +""""Do. Or do not. There is no try."""" }
+          p { +"- Master Yoda (The Empire Strikes Back)" }
         }
-        carouselItem {
-          div("container") {
-            i("swg swg-yoda-2 swg-6x carousel-icon-item") {}
-            carouselCaption("") {
-              h1 { +""""Do. Or do not. There is no try."""" }
-              p { +"- Master Yoda (The Empire Strikes Back)" }
-            }
-          }
+        swCarouselQuoteItem("swg-k2s0") {
+          h2 { +""""Half the people here wanna reprogram you...""" }
+          h2 { +""" The other half wanna put a hole in your head."""" }
+          p { +"- Jyn Erso" }
+        }
+        swCarouselQuoteItem("swg-c3po-2") {
+          h2 { +""""Sir, the possibility of successfully navigating an asteroid field is approximately 3,720 to 1."""" }
+          p { +"- C-3PO (The Empire Strikes Back)" }
+        }
+      }
+    }
+  }
+
+  private fun RBuilder.swCarouselQuoteItem(swIcon: String, captionContent: RBuilder.() -> Unit) {
+    carouselItem {
+      div("container") {
+        i("swg $swIcon swg-6x carousel-icon-item") {}
+        carouselCaption("") {
+          captionContent()
         }
       }
     }
