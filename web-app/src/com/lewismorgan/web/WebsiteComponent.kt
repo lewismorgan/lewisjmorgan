@@ -10,6 +10,8 @@ import com.lewismorgan.web.bootstrap.nav.navbarCollapsible
 import com.lewismorgan.web.bootstrap.nav.navbarToggler
 import com.lewismorgan.web.bootstrap.nav.navigationItem
 import kotlinx.html.DIV
+import kotlinx.html.classes
+import kotlinx.html.title
 import react.RBuilder
 import react.RComponent
 import react.RProps
@@ -22,6 +24,8 @@ import react.dom.h1
 import react.dom.h3
 import react.dom.h4
 import react.dom.header
+import react.dom.i
+import react.dom.img
 import react.dom.li
 import react.dom.p
 import react.dom.section
@@ -43,7 +47,9 @@ class WebsiteComponent : RComponent<RProps, RState>() {
   private fun RBuilder.renderNavbar() {
     navbar("navbar-expand-lg navbar-dark fixed-top bg-dark", true) {
       div("container") {
-        navbarBranding("#Home") { +"Don't Get Lost -->" }
+        navbarBranding("#Home") {
+          fontAwesome("map-marked-alt", FontAwesomeStyleType.SOLID)
+        }
         navbarToggler { span("navbar-toggler-icon") {} }
         navbarCollapsible {
           navComponent {
@@ -96,6 +102,11 @@ class WebsiteComponent : RComponent<RProps, RState>() {
   private fun RBuilder.renderHeader() {
     header("masthead bg-primary text-center") {
       div("container") {
+        // TODO Use gravatar to get the image
+        img("( ͡° ͜ʖ ͡°)", "/me.png") {
+          attrs.title = "( ͡° ͜ʖ ͡°)"
+          attrs.classes += "img-fluid mx-auto rounded-circle mb-3"
+        }
         h1 { +"Lewis Morgan" }
         div("container m-2") {
           div("m-2") {
@@ -108,7 +119,7 @@ class WebsiteComponent : RComponent<RProps, RState>() {
             }
           }
         }
-        h4 {
+        h4("mt-4") {
           +"Student - Developer - Star Wars Fanatic"
         }
       }
@@ -120,15 +131,21 @@ class WebsiteComponent : RComponent<RProps, RState>() {
       attrs["id"] = "welcome-carousel"
       carousel(1) {
         carouselItem {
-          carouselCaption("text-left") {
-            h1 { +"Welcome." }
-            p { +"// TODO: Insert some welcoming text." }
+          div("container") {
+            fontAwesome("list", FontAwesomeStyleType.SOLID, FontAwesomeSize.DEFAULT, "carousel-icon-item") {}
+            carouselCaption("text-left") {
+              h1 { +"Welcome" }
+              p { +"// TODO: Insert some welcoming text." }
+            }
           }
         }
         carouselItem {
-          carouselCaption("") {
-            h1 { +""""Do. Or do not. There is no try."""" }
-            p { +"- Master Yoda (The Empire Strikes Back)" }
+          div("container") {
+            i("swg swg-yoda-2 swg-6x carousel-icon-item") {}
+            carouselCaption("") {
+              h1 { +""""Do. Or do not. There is no try."""" }
+              p { +"- Master Yoda (The Empire Strikes Back)" }
+            }
           }
         }
       }
