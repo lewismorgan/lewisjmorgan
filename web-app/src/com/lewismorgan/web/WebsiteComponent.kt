@@ -107,20 +107,22 @@ class WebsiteComponent : RComponent<RProps, RState>() {
           attrs.title = "( ͡° ͜ʖ ͡°)"
           attrs.classes += "img-fluid mx-auto rounded-circle mb-3"
         }
-        h1 { +"Lewis Morgan" }
-        div("container m-2") {
-          div("m-2") {
-            fontAwesome("laptop", FontAwesomeStyleType.SOLID, FontAwesomeSize.X3)
-          }
-          h3 {
-            fontAwesome("terminal", FontAwesomeStyleType.SOLID)
-            span {
-              +" sudo rm -rf /"
+        div("container") {
+          h1 { +"Lewis Morgan" }
+          ul("list-stack") {
+            li("list-stack-item") {
+              span { +"Student " }
+              fontAwesome("user-graduate", FontAwesomeStyleType.SOLID)
+            }
+            li("list-stack-item") {
+              span { +"Developer " }
+              fontAwesome("code", FontAwesomeStyleType.SOLID)
+            }
+            li("list-stack-item") {
+              span { +"Star Wars Fanatic " }
+              i("swg swg-deathstar") {}
             }
           }
-        }
-        h4("mt-4") {
-          +"Student - Developer - Star Wars Fanatic"
         }
       }
     }
