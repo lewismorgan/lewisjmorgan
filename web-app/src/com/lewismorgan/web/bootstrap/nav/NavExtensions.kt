@@ -21,10 +21,3 @@ inline fun RBuilder.navbarCollapsible(block: RBuilder.() -> Unit) {
     block()
   }
 }
-
-inline fun RBuilder.navbarToggler(block: RDOMBuilder<BUTTON>.() -> Unit): ReactElement = tag(block) {
-  BUTTON(attributesMapOf(
-      "class", "navbar-toggler", "type", "button", "data-toggle", "collapse",
-      "data-target", "#navbarCollapse", "aria-controls", "navbarCollapse",
-      "aria-expanded", "false", "aria-label", "Toggle Nav"), it)
-}
