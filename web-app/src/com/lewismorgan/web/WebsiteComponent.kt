@@ -11,7 +11,9 @@ import react.dom.span
 
 class WebsiteComponent : RComponent<RProps, RState>() {
   override fun RBuilder.render() {
-    child(WebsiteNavbarComponent::class) {}
+    child(WebsiteNavbarComponent::class) {
+      attrs.collapsedMenuShown = true
+    }
     child(HeaderComponent::class) {}
     child(WelcomeComponent::class) {}
     // the main contents for website
