@@ -1,6 +1,7 @@
 package com.lewismorgan.web.bootstrap.nav
 
 import kotlinx.html.classes
+import kotlinx.html.role
 import org.w3c.dom.events.Event
 import react.RBuilder
 import react.RComponent
@@ -53,6 +54,7 @@ class NavbarComponent(props: NavbarProps) : RComponent<NavbarProps, NavbarState>
 
   override fun RBuilder.render() {
     nav("navbar ${props.navbarStyle}") {
+      attrs.role = "navigation"
       if (state.minimized) {
         attrs.classes += "navbar-shrink"
       }
