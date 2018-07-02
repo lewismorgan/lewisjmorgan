@@ -8,26 +8,31 @@ import react.RComponent
 import react.RProps
 import react.RState
 import react.ReactElement
+import react.createContext
 import react.dom.button
+import react.dom.span
+import react.setState
 
 interface NavbarTogglerProps : RProps {
-  var onClick: (Event) -> Unit
+  var onToggle: (Event) -> Unit
+  var collapsed: Boolean
 }
 
-class NavbarToggler : RComponent<NavbarTogglerProps, RState>() {
+class NavbarToggler(props: NavbarTogglerProps) : RComponent<NavbarTogglerProps, RState>(props) {
+
   override fun RBuilder.render() {
-    button(classes = "navbar-toggler", type = ButtonType.button) {
-      attrs["aria-controls"] = "navbarCollapse"
-      attrs["aria-expanded"] = "false"
-      attrs["aria-label"] = "Toggle Nav"
-      attrs.onClickFunction = props.onClick
+    // TODO Remove "collapsed" class when button toggled
+    // TODO Default state is to be collapsed
+    button(classes = "navbar-toggler ${if (props.collapsed) "collapsed" else "collapsed"}", type = ButtonType.button) {
+      //attrs.onClickFunction = props.onToggle
+      span("navbar-toggler-icon") {}
+      children()
     }
   }
 }
 
-fun RBuilder.navbarToggler(onClick: (Event) -> Unit, block: RBuilder.() -> Unit): ReactElement {
+fun RBuilder.navbarToggler(block: RBuilder.() -> Unit): ReactElement {
   return child<NavbarTogglerProps, NavbarToggler> {
-    attrs.onClick = onClick
     block()
   }
 }

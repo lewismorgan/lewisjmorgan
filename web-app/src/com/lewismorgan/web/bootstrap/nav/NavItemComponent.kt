@@ -15,7 +15,7 @@ interface NavItemProps : RProps {
   var isActive: Boolean
   var href: String
   var text: String
-  var onClick: (Event) -> Unit
+  var onSelect: (Event) -> Unit
 }
 
 /**
@@ -26,17 +26,16 @@ class NavItemComponent : RComponent<NavItemProps, RState>() {
     li("nav-item ${if (props.isActive) "active" else ""}") {
       attrs.role = "presentation"
       a(props.href, classes = "nav-link") {
-        attrs.onClickFunction = props.onClick
+        attrs.onClickFunction = props.onSelect
         +props.text
       }
     }
   }
 }
 
-fun RBuilder.navigationItem(href: String, text: String, onClick: (Event) -> Unit): ReactElement {
+fun RBuilder.navigationItem(href: String, text: String): ReactElement {
   return child<NavItemProps, NavItemComponent> {
     attrs.href = href
     attrs.text = text
-    attrs.onClick = onClick
   }
 }
