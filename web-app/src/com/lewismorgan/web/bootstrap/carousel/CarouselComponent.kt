@@ -3,6 +3,7 @@ package com.lewismorgan.web.bootstrap.carousel
 import com.lewismorgan.web.misc.getChildren
 import kotlinx.html.A
 import kotlinx.html.attributesMapOf
+import kotlinx.html.classes
 import kotlinx.html.js.onClickFunction
 import org.w3c.dom.events.Event
 import react.RBuilder
@@ -57,6 +58,11 @@ class CarouselComponent(props: CarouselProps) : RComponent<CarouselProps, Carous
             // ReactElements are immutable, so gotta clone
             val toClone = children[i]
             child(cloneElement<CarouselItemProps>(toClone, toClone.props.children, props = {
+              if (state.activeIndex - 1 == i) {
+                classes = "carousel-item-prev"
+              } else if (state.activeIndex + 1 == i) {
+                classes = "carousel-item-next"
+              }
               this.isActive = (state.activeIndex == i)
             }))
           }

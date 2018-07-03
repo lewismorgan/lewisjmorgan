@@ -9,6 +9,7 @@ import react.dom.div
 
 interface CarouselItemProps : RProps {
   var isActive: Boolean
+  var classes: String
 }
 
 /**
@@ -16,7 +17,8 @@ interface CarouselItemProps : RProps {
  */
 class CarouselItemComponent : RComponent<CarouselItemProps, RState>() {
   override fun RBuilder.render() {
-    div("carousel-item${if (props.isActive) " active" else ""}") {
+    @Suppress("SENSELESS_COMPARISON")
+    div("carousel-item ${if (props.isActive) "active" else ""} ${if (props.classes != null) props.classes else ""}") {
       div("container") {
         children()
       }
