@@ -18,6 +18,7 @@ import react.dom.section
  * Created by lewis on 6/25/18.
  */
 class WelcomeComponent : RComponent<RProps, RState>() {
+  // TODO Move quotes into classes: IconImage, Text, Author, Movie (Optional)
   override fun RBuilder.render() {
     section {
       attrs["id"] = "sw-carousel"
