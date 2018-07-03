@@ -2,11 +2,13 @@ package com.lewismorgan.web
 
 import kotlinx.html.DIV
 import kotlinx.html.UL
+import kotlinx.html.style
 import react.RBuilder
 import react.RComponent
 import react.RProps
 import react.RState
 import react.dom.RDOMBuilder
+import react.dom.a
 import react.dom.div
 import react.dom.footer
 import react.dom.h4
@@ -17,8 +19,10 @@ import react.dom.ul
 
 class FooterComponent : RComponent<RProps, RState>() {
   private fun RDOMBuilder<UL>.renderSocialItem(name: String, brandIcon: String = name, href: String = "") {
-    li("list-inline-item") {
-      fontAwesome(brandIcon, FontAwesomeStyleType.BRAND, FontAwesomeSize.X2, "$name-icon social-icon-anim")
+    li("list-inline-item social") {
+      a(href) {
+        fontAwesome(brandIcon, FontAwesomeStyleType.BRAND, FontAwesomeSize.X2, "$name-icon social-icon-anim")
+      }
     }
   }
 
@@ -28,8 +32,8 @@ class FooterComponent : RComponent<RProps, RState>() {
       fontAwesome("comment", FontAwesomeStyleType.REGULAR, FontAwesomeSize.XS, powerTransform = "up-6")
     }
     ul("list-inline") {
-      renderSocialItem("facebook", "facebook-square")
-      renderSocialItem("twitter", "twitter-square")
+      renderSocialItem("facebook", "facebook-square", "https://www.facebook.com/lewis.morgan.14")
+      renderSocialItem("twitter", "twitter-square", "https://twitter.com/TheLewisMorgan")
       renderSocialItem("linkedin")
     }
   }

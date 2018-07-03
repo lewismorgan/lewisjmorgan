@@ -6,6 +6,10 @@
   color: inherit;
 }
 
+.list-inline-item a {
+  color: inherit
+}
+
 .facebook-icon:hover {
   color: #3B5998
 }
