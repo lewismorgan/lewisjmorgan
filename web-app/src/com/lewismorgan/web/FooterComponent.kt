@@ -44,7 +44,10 @@ class FooterComponent : RComponent<RProps, RState>() {
         div("row justify-content-md-center") {
           div("col-md-6") {
             h4 { +"Location" }
-            p { +"Tampa, Florida" }
+            p {
+              fontAwesome("location-arrow", FontAwesomeStyleType.SOLID, FontAwesomeSize.XS, powerTransform = "up-6")
+              span { +"\tTampa, Florida" }
+            }
           }
           div("col-md-6") {
             renderSocial()
