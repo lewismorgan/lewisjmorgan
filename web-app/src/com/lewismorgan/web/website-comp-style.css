@@ -4,13 +4,6 @@
     padding-bottom: 6rem;
   }
 
-  .navbar {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-    -webkit-transition: padding-top .3s, padding-bottom .3s;
-    -moz-transition: padding-top .3s, padding-bottom .3s;
-    transition: padding-top .3s, padding-bottom .3s;
-  }
 }
 
 header.masthead {

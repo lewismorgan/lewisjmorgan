@@ -1,9 +1,16 @@
 /* CSS Styling for core bootstrap functionality for React */
 @media (min-width: 992px) {
   /* Non-default CSS class from core Bootstrap. */
+  .navbar {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    -webkit-transition: padding-top .3s, padding-bottom .3s;
+    -moz-transition: padding-top .3s, padding-bottom .3s;
+    transition: padding-top .3s, padding-bottom .3s;
+  }
   .navbar-shrink {
-    padding-top: .25rem;
-    padding-bottom: .5rem;
+    padding-top: inherit;
+    padding-bottom: inherit;
   }
 }
 
