@@ -34,7 +34,7 @@ class FooterComponent : RComponent<RProps, RState>() {
     ul("list-inline") {
       renderSocialItem("facebook", "facebook-square", "https://www.facebook.com/lewis.morgan.14")
       renderSocialItem("twitter", "twitter-square", "https://twitter.com/TheLewisMorgan")
-      renderSocialItem("linkedin")
+      renderSocialItem("linkedin", href = "https://www.linkedin.com/in/lewis-morgan-51b7a6167/")
     }
   }
 
