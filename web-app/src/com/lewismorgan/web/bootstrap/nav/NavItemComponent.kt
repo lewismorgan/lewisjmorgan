@@ -1,7 +1,6 @@
 package com.lewismorgan.web.bootstrap.nav
 
 import com.lewismorgan.web.misc.navHashLink
-import kotlinx.html.js.onClickFunction
 import kotlinx.html.role
 import org.w3c.dom.events.Event
 import react.RBuilder
@@ -9,10 +8,7 @@ import react.RComponent
 import react.RProps
 import react.RState
 import react.ReactElement
-import react.dom.a
 import react.dom.li
-import react.dom.span
-import react.router.dom.navLink
 
 interface NavItemProps : RProps {
   var isActive: Boolean
@@ -28,13 +24,9 @@ class NavItemComponent : RComponent<NavItemProps, RState>() {
   override fun RBuilder.render() {
     li("nav-item ${if (props.isActive) "active" else ""}") {
       attrs.role = "presentation"
-      navHashLink("/" + props.href, props.onSelect, className = "nav-link", activeClassName = "active-nav-item") {
+      navHashLink("/" + props.href, props.onSelect, className = "nav-link") {
         +props.text
       }
-//      a(props.href, classes = "nav-link") {
-//        attrs.onClickFunction = props.onSelect
-//        span { +props.text }
-//      }
     }
   }
 }
