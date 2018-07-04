@@ -1,7 +1,9 @@
 package com.lewismorgan.web.misc
 
 import org.w3c.dom.events.Event
+import react.RBuilder
 import react.RComponent
+import react.RHandler
 import react.RProps
 import react.RState
 import react.ReactElement
@@ -40,4 +42,18 @@ fun <P : RProps, S : RState> RComponent<P, S>.getChildren(): Array<ReactElement>
     // If there is a single element, it's not known as an array just an object
     arrayOf(props.children.unsafeCast<ReactElement>())
   }
+}
+
+fun RBuilder.navHashLink(to: String, onClick: (Event) -> Unit,
+                         className: String? = null,
+                         activeClassName: String = "active",
+                         handler: RHandler<NavHashLinkProps>) = child<NavHashLinkProps, NavHashLinkComponent> {
+  attrs {
+    this.to = to
+    this.className = className
+    this.activeClassName = activeClassName
+    this.onClick = onClick
+    this.smooth = true
+  }
+  handler.invoke(this)
 }

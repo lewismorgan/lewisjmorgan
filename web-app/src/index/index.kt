@@ -5,6 +5,9 @@ import kotlinext.js.require
 import kotlinext.js.requireAll
 import react.dom.render
 import react.dom.script
+import react.router.dom.browserRouter
+import react.router.dom.route
+import react.router.dom.switch
 import kotlin.browser.document
 
 fun main(args: Array<String>) {
@@ -14,7 +17,9 @@ fun main(args: Array<String>) {
   require("@fortawesome/fontawesome-free/js/all.js")
   requireAll(require.context("src", true, js("/\\.css$/")))
   render(document.getElementById("root")) {
-    child(WebsiteComponent::class) {}
+    browserRouter {
+      child(WebsiteComponent::class) {}
+    }
     script(src = "jquery/dist/jquery.slim.min.js") {}
     script(src = "popper.js/dist/popper.min.js") {}
     script(src = "bootstrap/dist/js/bootstrap.min.js") {}

@@ -22,15 +22,12 @@ import react.dom.span
  */
 class ProjectsComponent : RComponent<RProps, RState>() {
   override fun RBuilder.render() {
-    section("mb-5 mt-5") {
-      attrs["id"] = "projects"
-      div("container") {
-        div("row justify-content-md-center") {
-          // TODO Move projects into data store
-          renderProjectItem("lewisjmorgan", "Source code for my portfolio site", "lewisjmorgan")
-          renderProjectItem("Harvester Droid", "Manage your resources across a number of Star Wars Galaxies resource trackers", "HarvesterDroid")
-          renderProjectItem("Malzahar", "A reactive Kotlin library for Riot Games' League of Legends API", "Malzahar")
-        }
+    div("container") {
+      div("row justify-content-md-center") {
+        // TODO Move projects into data store
+        renderProjectItem("lewisjmorgan", "Source code for my portfolio site", "lewisjmorgan")
+        renderProjectItem("Harvester Droid", "Manage your resources across a number of Star Wars Galaxies resource trackers", "HarvesterDroid")
+        renderProjectItem("Malzahar", "A reactive Kotlin library for Riot Games' League of Legends API", "Malzahar")
       }
     }
   }
