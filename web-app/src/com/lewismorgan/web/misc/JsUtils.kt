@@ -20,7 +20,7 @@ inline fun jsIsArray(a: Any?) = js("typeof a === 'object' && a.constructor === A
  * @param functions Array<out Function1<Event, Unit>>
  * @return (Event) -> Unit
  */
-fun chainedFunction(vararg functions: (Event) -> Unit): (Event) -> Unit {
+fun <T> chainedFunction(vararg functions: (T) -> Unit): (T) -> Unit {
   return functions.reduce { acc, func ->
     {
       acc.apply { func(it) }

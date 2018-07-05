@@ -2,7 +2,6 @@ package com.lewismorgan.web.bootstrap.nav
 
 import com.lewismorgan.web.misc.chainedFunction
 import com.lewismorgan.web.misc.getChildren
-import kotlinx.html.js.onClickFunction
 import org.w3c.dom.events.Event
 import react.RBuilder
 import react.RComponent
@@ -16,7 +15,7 @@ import react.setState
 
 interface NavProps : RProps {
   var defaultIndex: Int
-  var onSelectItem: (Event) -> Unit
+  var onSelectItem: ((Int) -> (Event) -> Unit)?
 }
 
 interface NavState : RState {
@@ -47,23 +46,27 @@ class NavComponent : RComponent<NavProps, NavState>() {
           val activeChild = children[i]
           child(cloneElement<NavItemProps>(activeChild, activeChild.props.children, props = {
             isActive = state.activeIndex == i
-            onSelect = onSelectIndex(i)
-            // TODO Chain: onSelect = chainedFunction(onSelectIndex(i), props.onSelectItem)
+            onSelect = if (props.onSelectItem != null) {
+              chainedFunction(onSelectNavItem(i), props.onSelectItem!!(i))
+            } else {
+              onSelectNavItem(i)
+            }
           }))
         }
       }
     }
   }
 
-  private fun onSelectIndex(index: Int): (Event) -> Unit = {
+  private fun onSelectNavItem(index: Int): (Event) -> Unit = {
     setState {
       activeIndex = index
     }
   }
 }
 
-fun RBuilder.navComponent(block: RBuilder.() -> Unit): ReactElement {
+fun RBuilder.navComponent(onSelectItem: ((Int) -> (Event) -> Unit)? = null, block: RBuilder.() -> Unit): ReactElement {
   return child<NavProps, NavComponent> {
+    onSelectItem?.apply { attrs.onSelectItem = this }
     block()
   }
 }

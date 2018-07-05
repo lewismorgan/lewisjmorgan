@@ -24,7 +24,8 @@ class NavItemComponent : RComponent<NavItemProps, RState>() {
   override fun RBuilder.render() {
     li("nav-item ${if (props.isActive) "active" else ""}") {
       attrs.role = "presentation"
-      navHashLink("/" + props.href, props.onSelect, className = "nav-link") {
+      // TODO: NavHashLinks broken for active status see https://github.com/rafrex/react-router-hash-link/issues/29
+      navHashLink("/" + props.href, props.onSelect, className = "nav-link", activeClassName = "active") {
         +props.text
       }
     }

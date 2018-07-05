@@ -21,21 +21,21 @@ class WebsiteComponent : RComponent<RProps, RState>() {
       navigationItem("#education", "Education")
       navigationItem("#contact", "Contact")
     }
-    section {
+    div {
       attrs.id = "home"
       child(HeaderComponent::class) {}
       child(WelcomeComponent::class) {}
     }
     // the main contents for website
-    section("mb-5 mt-5") {
+    div("mb-5 mt-5") {
       attrs.id = "projects"
       child(ProjectsComponent::class) {}
     }
-    section {
+    div {
       attrs.id = "education"
       child(EducationComponent::class) {}
     }
-    section {
+    div {
       attrs.id = "contact"
       child(ContactComponent::class) {}
     }
