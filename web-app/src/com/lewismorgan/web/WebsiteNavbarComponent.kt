@@ -35,23 +35,19 @@ class WebsiteNavbarComponent(props: WebsiteNavbarProps) : RComponent<WebsiteNavb
   private fun onClickToggler(): (Event) -> Unit = {
     setState {
       collapsed = !collapsed
-//      console.log("onClickToggler: Shown: $collapsed")
     }
   }
 
   override fun RBuilder.render() {
     navbar("navbar-expand-lg navbar-dark fixed-top bg-dark", true) {
       div("container") {
-        navbarBranding("#Home") {
+        navbarBranding("/") {
           fontAwesome("map-marked-alt", FontAwesomeStyleType.SOLID)
         }
         navbarToggler(state.collapsed, onClickToggler()) {}
         navbarCollapse(!state.collapsed) {
           navComponent {
-            navigationItem("#Home", "Home")
-            navigationItem("#Projects", "Projects")
-            navigationItem("#Education", "Education")
-            navigationItem("#Contact", "Contact")
+            children()
           }
         }
       }

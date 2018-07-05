@@ -1,7 +1,9 @@
 package com.lewismorgan.web.misc
 
 import org.w3c.dom.events.Event
+import react.RBuilder
 import react.RComponent
+import react.RHandler
 import react.RProps
 import react.RState
 import react.ReactElement
@@ -18,7 +20,7 @@ inline fun jsIsArray(a: Any?) = js("typeof a === 'object' && a.constructor === A
  * @param functions Array<out Function1<Event, Unit>>
  * @return (Event) -> Unit
  */
-fun chainedFunction(vararg functions: (Event) -> Unit): (Event) -> Unit {
+fun <T> chainedFunction(vararg functions: (T) -> Unit): (T) -> Unit {
   return functions.reduce { acc, func ->
     {
       acc.apply { func(it) }
@@ -40,4 +42,18 @@ fun <P : RProps, S : RState> RComponent<P, S>.getChildren(): Array<ReactElement>
     // If there is a single element, it's not known as an array just an object
     arrayOf(props.children.unsafeCast<ReactElement>())
   }
+}
+
+fun RBuilder.navHashLink(to: String, onClick: (Event) -> Unit,
+                         className: String? = null,
+                         activeClassName: String = "active",
+                         handler: RHandler<NavHashLinkProps>) = child<NavHashLinkProps, NavHashLinkComponent> {
+  attrs {
+    this.to = to
+    this.className = className
+    this.activeClassName = activeClassName
+    this.onClick = onClick
+    this.smooth = true
+  }
+  handler.invoke(this)
 }
