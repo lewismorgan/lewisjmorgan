@@ -17,6 +17,7 @@ class WebsiteComponent : RComponent<RProps, RState>() {
     child(WebsiteNavbarComponent::class) {
       attrs.collapsedMenuShown = true
       navigationItem("#home", "Home")
+      navigationItem("#quotes", "Inspiration")
       navigationItem("#projects", "Projects")
       navigationItem("#education", "Education")
       navigationItem("#contact", "Contact")
@@ -24,6 +25,9 @@ class WebsiteComponent : RComponent<RProps, RState>() {
     div {
       attrs.id = "home"
       child(HeaderComponent::class) {}
+    }
+    div {
+      attrs.id = "quotes"
       child(WelcomeComponent::class) {}
     }
     // the main contents for website
