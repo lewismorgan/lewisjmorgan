@@ -6,12 +6,14 @@ import com.lewismorgan.web.bootstrap.nav.navbar
 import com.lewismorgan.web.bootstrap.nav.navbarBranding
 import com.lewismorgan.web.bootstrap.nav.navbarCollapse
 import com.lewismorgan.web.bootstrap.nav.navbarToggler
-import com.lewismorgan.web.bootstrap.nav.navigationItem
+import kotlinx.html.ButtonType
+import kotlinx.html.classes
 import org.w3c.dom.events.Event
 import react.RBuilder
 import react.RComponent
 import react.RProps
 import react.RState
+import react.dom.button
 import react.dom.div
 import react.setState
 
@@ -50,6 +52,13 @@ class WebsiteNavbarComponent(props: WebsiteNavbarProps) : RComponent<WebsiteNavb
             children()
           }
         }
+      }
+    }
+    floatingItem {
+      attrs.classes = "d-lg-none"
+      attrs.displayScrollOffset = 90
+      button(type = ButtonType.button, classes = "btn btn-primary jump-top-nav-btn") {
+        +"^"
       }
     }
   }
