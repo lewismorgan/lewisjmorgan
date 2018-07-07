@@ -6,6 +6,7 @@ import com.lewismorgan.web.bootstrap.nav.navbar
 import com.lewismorgan.web.bootstrap.nav.navbarBranding
 import com.lewismorgan.web.bootstrap.nav.navbarCollapse
 import com.lewismorgan.web.bootstrap.nav.navbarToggler
+import com.lewismorgan.web.misc.getSmoothScrollingHandler
 import com.lewismorgan.web.misc.navHashLink
 import org.w3c.dom.events.Event
 import react.RBuilder
@@ -42,7 +43,7 @@ class WebsiteNavbarComponent(props: WebsiteNavbarProps) : RComponent<WebsiteNavb
   override fun RBuilder.render() {
     navbar("navbar-expand-lg navbar-dark fixed-top bg-dark", true) {
       div("container") {
-        navbarBranding("/") {
+        navbarBranding("#") {
           fontAwesome("map-marked-alt", FontAwesomeStyleType.SOLID)
         }
         navbarToggler(state.collapsed, onClickToggler()) {}
@@ -56,7 +57,7 @@ class WebsiteNavbarComponent(props: WebsiteNavbarProps) : RComponent<WebsiteNavb
     floatingItem {
       attrs.classes = ""
       attrs.displayScrollOffset = 50
-      navHashLink("#home", {}, className = "btn btn-outline-light jump-top-nav-btn text-center") {
+      navHashLink("#home", className = "btn btn-outline-light jump-top-nav-btn text-center", scroll = getSmoothScrollingHandler()) {
         i("swg swg-falcon-2 swg-4x") {}
       }
     }

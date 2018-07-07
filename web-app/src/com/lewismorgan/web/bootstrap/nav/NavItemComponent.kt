@@ -1,5 +1,6 @@
 package com.lewismorgan.web.bootstrap.nav
 
+import com.lewismorgan.web.misc.getSmoothScrollingHandler
 import com.lewismorgan.web.misc.navHashLink
 import kotlinx.html.role
 import org.w3c.dom.events.Event
@@ -25,7 +26,7 @@ class NavItemComponent : RComponent<NavItemProps, RState>() {
     li("nav-item ${if (props.isActive) "active" else ""}") {
       attrs.role = "presentation"
       // TODO: NavHashLinks broken for active status see https://github.com/rafrex/react-router-hash-link/issues/29
-      navHashLink("/" + props.href, props.onSelect, className = "nav-link", activeClassName = "active") {
+      navHashLink("/" + props.href, onClick = props.onSelect, className = "nav-link", activeClassName = "active", scroll = getSmoothScrollingHandler()) {
         +props.text
       }
     }
