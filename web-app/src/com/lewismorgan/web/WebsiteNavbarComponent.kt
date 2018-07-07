@@ -15,6 +15,7 @@ import react.RProps
 import react.RState
 import react.dom.button
 import react.dom.div
+import react.dom.i
 import react.setState
 
 interface WebsiteNavbarProps : RProps {
@@ -55,10 +56,10 @@ class WebsiteNavbarComponent(props: WebsiteNavbarProps) : RComponent<WebsiteNavb
       }
     }
     floatingItem {
-      attrs.classes = "d-lg-none"
-      attrs.displayScrollOffset = 90
-      button(type = ButtonType.button, classes = "btn btn-primary jump-top-nav-btn") {
-        +"^"
+      attrs.classes = ""
+      attrs.displayScrollOffset = 50
+      button(type = ButtonType.button, classes = "btn btn-outline-light jump-top-nav-btn text-center") {
+        i("swg swg-falcon-2 swg-4x") {}
       }
     }
   }
