@@ -14,7 +14,6 @@ import react.dom.a
 import react.dom.div
 import react.dom.h5
 import react.dom.p
-import react.dom.section
 import react.dom.span
 
 /**

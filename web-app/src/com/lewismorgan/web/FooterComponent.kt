@@ -2,7 +2,6 @@ package com.lewismorgan.web
 
 import kotlinx.html.DIV
 import kotlinx.html.UL
-import kotlinx.html.style
 import react.RBuilder
 import react.RComponent
 import react.RProps

@@ -1,6 +1,5 @@
 package com.lewismorgan.web.misc
 
-import kotlinext.js.asJsObject
 import org.w3c.dom.Document
 import org.w3c.dom.Element
 import org.w3c.dom.events.Event
@@ -11,7 +10,6 @@ import react.RProps
 import react.RState
 import react.ReactElement
 import react.children
-import kotlin.browser.window
 
 /**
  * Created by lewis on 6/23/18.

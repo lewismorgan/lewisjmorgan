@@ -12,6 +12,7 @@ import react.RState
 external class NavHashLinkComponent : Component<NavHashLinkProps, RState> {
   override fun render(): dynamic
 }
+
 external interface NavHashLinkProps : RProps {
   var to: String
   var onClick: (Event) -> Unit

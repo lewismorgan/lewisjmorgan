@@ -24,6 +24,7 @@ class NavbarCollapse(props: NavbarCollapseProps) : RComponent<NavbarCollapseProp
     }
   }
 }
+
 fun RBuilder.navbarCollapse(uncollapsed: Boolean, block: RBuilder.() -> Unit): ReactElement {
   return child<NavbarCollapseProps, NavbarCollapse> {
     attrs.shown = uncollapsed

@@ -8,6 +8,7 @@
     -moz-transition: padding-top .3s, padding-bottom .3s;
     transition: padding-top .3s, padding-bottom .3s;
   }
+
   .navbar-shrink {
     padding-top: inherit;
     padding-bottom: inherit;
@@ -24,6 +25,7 @@
     line-height: 1.4;
   }
 }
+
 /* Carousel base class */
 .carousel {
   margin-bottom: 4rem;
