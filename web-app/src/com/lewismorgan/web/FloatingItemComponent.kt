@@ -1,5 +1,6 @@
 package com.lewismorgan.web
 
+import com.lewismorgan.web.misc.getScrollTop
 import org.w3c.dom.events.Event
 import react.RBuilder
 import react.RComponent
@@ -37,9 +38,10 @@ class FloatingItemComponent(props: FloatingItemProps) : RComponent<FloatingItemP
   }
 
   private fun createFloatingScrollHandler(): (Event) -> Unit = {
-    val scrollTop = document.documentElement!!.scrollTop
+    val scrollTop = getScrollTop(document)
     val winHeight = window.innerHeight
     val docHeight = document.documentElement!!.scrollHeight
+
     if ((((scrollTop) / (docHeight - winHeight)) * 100) >= props.displayScrollOffset) {
       setState {
         displayed = true

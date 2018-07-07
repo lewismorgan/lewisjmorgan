@@ -7,20 +7,14 @@ import com.lewismorgan.web.bootstrap.nav.navbarBranding
 import com.lewismorgan.web.bootstrap.nav.navbarCollapse
 import com.lewismorgan.web.bootstrap.nav.navbarToggler
 import com.lewismorgan.web.misc.navHashLink
-import kotlinx.html.ButtonType
-import kotlinx.html.classes
-import kotlinx.html.js.onClickFunction
 import org.w3c.dom.events.Event
 import react.RBuilder
 import react.RComponent
 import react.RProps
 import react.RState
-import react.dom.button
 import react.dom.div
 import react.dom.i
 import react.setState
-import kotlin.browser.document
-import kotlin.browser.window
 
 interface WebsiteNavbarProps : RProps {
   var collapsedMenuShown: Boolean

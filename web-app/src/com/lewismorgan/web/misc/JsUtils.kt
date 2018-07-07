@@ -59,9 +59,7 @@ fun RBuilder.navHashLink(to: String, onClick: (Event) -> Unit,
   handler.invoke(this)
 }
 
-fun getDocHeight(document: Document): Int {
-  return listOf(
-      document.body!!.clientHeight,
-      document.body!!.offsetHeight, document.documentElement!!.clientHeight,
-      document.body!!.scrollHeight, document.documentElement!!.scrollHeight).max()!!
+fun getScrollTop(document: Document): Double {
+  val element = if (document.scrollingElement != null) document.scrollingElement else document.documentElement
+  return element!!.scrollTop
 }
