@@ -1,5 +1,8 @@
 package com.lewismorgan.web.misc
 
+import kotlinext.js.asJsObject
+import org.w3c.dom.Document
+import org.w3c.dom.Element
 import org.w3c.dom.events.Event
 import react.RBuilder
 import react.RComponent
@@ -8,6 +11,7 @@ import react.RProps
 import react.RState
 import react.ReactElement
 import react.children
+import kotlin.browser.window
 
 /**
  * Created by lewis on 6/23/18.
@@ -44,16 +48,34 @@ fun <P : RProps, S : RState> RComponent<P, S>.getChildren(): Array<ReactElement>
   }
 }
 
-fun RBuilder.navHashLink(to: String, onClick: (Event) -> Unit,
+fun RBuilder.navHashLink(to: String,
                          className: String? = null,
                          activeClassName: String = "active",
+                         onClick: ((Event) -> Unit)? = null,
+                         scroll: ((Element) -> Unit)? = null,
                          handler: RHandler<NavHashLinkProps>) = child<NavHashLinkProps, NavHashLinkComponent> {
   attrs {
     this.to = to
     this.className = className
     this.activeClassName = activeClassName
-    this.onClick = onClick
     this.smooth = true
+    if (onClick != null)
+      this.onClick = onClick
+    if (scroll != null)
+      this.scroll = scroll
   }
   handler.invoke(this)
+}
+
+fun getScrollTop(document: Document): Double {
+  val element = if (document.scrollingElement != null) document.scrollingElement else document.documentElement
+  return element!!.scrollTop
+}
+
+fun getSmoothScrollingHandler(): (Element) -> Unit = {
+  //it.scrollIntoView(js("{ behavior: 'smooth' }"))
+  // Some browsers like Safari don't support scrolling into view with options...
+  // TODO: Create zenscroll Kotlin class
+  @Suppress("UnsafeCastFromDynamic")
+  js("zenscroll.intoView(it)")
 }

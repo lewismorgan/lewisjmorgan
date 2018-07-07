@@ -2,6 +2,7 @@
 
 package com.lewismorgan.web.misc
 
+import org.w3c.dom.Element
 import org.w3c.dom.events.Event
 import react.Component
 import react.RProps
@@ -17,4 +18,5 @@ external interface NavHashLinkProps : RProps {
   var className: String?
   var activeClassName: String?
   var smooth: Boolean
+  var scroll: (Element) -> Unit
 }
