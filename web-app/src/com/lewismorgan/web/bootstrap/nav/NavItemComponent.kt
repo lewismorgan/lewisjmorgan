@@ -33,8 +33,10 @@ class NavItemComponent : RComponent<NavItemProps, RState>() {
   }
 }
 
-fun RBuilder.navigationItem(href: String, text: String): ReactElement {
+fun RBuilder.navigationItem(href: String, text: String, onSelect: ((Event) -> Unit)? = null): ReactElement {
   return child<NavItemProps, NavItemComponent> {
+    if (onSelect != null)
+      attrs.onSelect = onSelect
     attrs.href = href
     attrs.text = text
   }
