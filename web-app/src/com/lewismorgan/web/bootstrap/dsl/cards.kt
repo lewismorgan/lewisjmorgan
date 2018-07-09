@@ -1,4 +1,4 @@
-package com.lewismorgan.web.bootstrap
+package com.lewismorgan.web.bootstrap.dsl
 
 import kotlinx.html.DIV
 import react.dom.RDOMBuilder

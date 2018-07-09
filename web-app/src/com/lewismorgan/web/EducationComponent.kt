@@ -1,5 +1,6 @@
 package com.lewismorgan.web
 
+import com.lewismorgan.web.bootstrap.dsl.container
 import react.RBuilder
 import react.RComponent
 import react.RProps
@@ -8,7 +9,7 @@ import react.dom.div
 
 class EducationComponent : RComponent<RProps, RState>() {
   override fun RBuilder.render() {
-    div("container") {
+    container {
       // TODO Add education component
     }
   }

@@ -1,8 +1,9 @@
 package com.lewismorgan.web
 
-import com.lewismorgan.web.bootstrap.card
-import com.lewismorgan.web.bootstrap.cardBody
-import com.lewismorgan.web.bootstrap.cardFooter
+import com.lewismorgan.web.bootstrap.dsl.card
+import com.lewismorgan.web.bootstrap.dsl.cardBody
+import com.lewismorgan.web.bootstrap.dsl.cardFooter
+import com.lewismorgan.web.bootstrap.dsl.container
 import kotlinx.html.DIV
 import kotlinx.html.classes
 import react.RBuilder
@@ -21,7 +22,7 @@ import react.dom.span
  */
 class ProjectsComponent : RComponent<RProps, RState>() {
   override fun RBuilder.render() {
-    div("container") {
+    container {
       div("row justify-content-md-center") {
         // TODO Move projects into data store
         renderProjectItem("lewisjmorgan", "Source code for my portfolio site", "lewisjmorgan")

@@ -1,5 +1,6 @@
 package com.lewismorgan.web
 
+import com.lewismorgan.web.bootstrap.dsl.container
 import com.lewismorgan.web.bootstrap.nav.navigationItem
 import kotlinx.html.id
 import react.RBuilder
@@ -51,7 +52,7 @@ class WebsiteComponent : RComponent<RProps, RState>() {
     section {
       attrs.id = "copyright"
       div("copyright text-center py-4 bg-dark text-white") {
-        div("container") {
+        container {
           small("footer-notes") {
             span {
               +"Copyright "

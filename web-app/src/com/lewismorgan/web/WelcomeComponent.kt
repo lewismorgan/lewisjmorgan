@@ -3,6 +3,7 @@ package com.lewismorgan.web
 import com.lewismorgan.web.bootstrap.carousel.carousel
 import com.lewismorgan.web.bootstrap.carousel.carouselCaption
 import com.lewismorgan.web.bootstrap.carousel.carouselItem
+import com.lewismorgan.web.bootstrap.dsl.container
 import react.RBuilder
 import react.RComponent
 import react.RProps
@@ -42,7 +43,7 @@ class WelcomeComponent : RComponent<RProps, RState>() {
 
   private fun RBuilder.swCarouselQuoteItem(swIcon: String, captionContent: RBuilder.() -> Unit) {
     carouselItem {
-      div("container") {
+      container {
         i("swg $swIcon swg-6x carousel-icon-item") {}
         carouselCaption("") {
           captionContent()
