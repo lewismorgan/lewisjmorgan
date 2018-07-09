@@ -40,6 +40,12 @@ class WebsiteNavbarComponent(props: WebsiteNavbarProps) : RComponent<WebsiteNavb
     }
   }
 
+  private fun onSelectNavItem(@Suppress("UNUSED_PARAMETER") itemId: Int): (Event) -> Unit = {
+    setState {
+      collapsed = true
+    }
+  }
+
   override fun RBuilder.render() {
     navbar("navbar-expand-lg navbar-dark fixed-top bg-dark", true) {
       div("container") {
@@ -48,7 +54,7 @@ class WebsiteNavbarComponent(props: WebsiteNavbarProps) : RComponent<WebsiteNavb
         }
         navbarToggler(state.collapsed, onClickToggler()) {}
         navbarCollapse(!state.collapsed) {
-          navComponent {
+          navComponent({ i -> onSelectNavItem(i) }) {
             children()
           }
         }
