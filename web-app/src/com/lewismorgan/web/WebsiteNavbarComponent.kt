@@ -11,7 +11,7 @@ import com.lewismorgan.web.children.FontAwesomeStyleType
 import com.lewismorgan.web.children.floatingItem
 import com.lewismorgan.web.children.fontAwesome
 import com.lewismorgan.web.misc.getSmoothScrollingHandler
-import com.lewismorgan.web.misc.navHashLink
+import com.lewismorgan.web.wrappers.navHashLink
 import org.w3c.dom.events.Event
 import react.RBuilder
 import react.RComponent
@@ -82,11 +82,13 @@ class WebsiteNavbarComponent(props: WebsiteNavbarProps) : RComponent<WebsiteNavb
         navbarToggler(state.collapsed, onClickToggler()) {}
         navbarCollapse(!state.collapsed) {
           navComponent({ i -> onSelectNavItem(i) }) {
+            // TODO Move navigation items into a list so using children() will add non-nav items
             children()
           }
         }
       }
     }
+    // TODO Move to own component and/or function depending on how advance I wanna make the falcon
     floatingItem {
       attrs.classes = ""
       attrs.displayScrollOffset = 50

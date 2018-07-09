@@ -1,16 +1,12 @@
 package com.lewismorgan.web.bootstrap.nav
 
-import kotlinx.html.classes
 import kotlinx.html.role
-import org.w3c.dom.events.Event
 import react.RBuilder
 import react.RComponent
 import react.RProps
 import react.RState
 import react.ReactElement
 import react.dom.nav
-import react.setState
-import kotlin.browser.window
 
 interface NavbarProps : RProps {
   var navbarStyle: String

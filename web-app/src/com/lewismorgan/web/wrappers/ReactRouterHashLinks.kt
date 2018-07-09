@@ -1,6 +1,6 @@
 @file:JsModule("react-router-hash-link")
 
-package com.lewismorgan.web.misc
+package com.lewismorgan.web.wrappers
 
 import org.w3c.dom.Element
 import org.w3c.dom.events.Event

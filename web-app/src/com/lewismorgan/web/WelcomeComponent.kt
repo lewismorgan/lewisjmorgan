@@ -8,7 +8,6 @@ import react.RBuilder
 import react.RComponent
 import react.RProps
 import react.RState
-import react.dom.div
 import react.dom.h1
 import react.dom.h2
 import react.dom.i
