@@ -2,6 +2,9 @@ package com.lewismorgan.web
 
 import com.lewismorgan.web.bootstrap.dsl.container
 import com.lewismorgan.web.bootstrap.nav.navigationItem
+import com.lewismorgan.web.children.FontAwesomeSize
+import com.lewismorgan.web.children.FontAwesomeStyleType
+import com.lewismorgan.web.children.fontAwesome
 import kotlinx.html.id
 import react.RBuilder
 import react.RComponent

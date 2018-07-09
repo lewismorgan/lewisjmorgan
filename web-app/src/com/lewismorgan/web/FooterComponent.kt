@@ -2,6 +2,9 @@ package com.lewismorgan.web
 
 import com.lewismorgan.web.bootstrap.dsl.container
 import com.lewismorgan.web.bootstrap.dsl.footer
+import com.lewismorgan.web.children.FontAwesomeSize
+import com.lewismorgan.web.children.FontAwesomeStyleType
+import com.lewismorgan.web.children.fontAwesome
 import kotlinx.html.DIV
 import kotlinx.html.UL
 import react.RBuilder
