@@ -30,8 +30,8 @@
     "npm-check": "^5.7.1"
   },
   "scripts": {
-    "build-css": "node-sass-chokidar scss/ -o public/stylesheets",
-    "watch-css": "npm run build-css && node-sass-chokidar scss/ -o public/stylesheets --watch --recursive",
+    "build-css": "node-sass-chokidar scss/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar scss/ -o src/index/ --watch --recursive",
     "start": "react-scripts-kotlin start",
     "build": "react-scripts-kotlin build",
     "eject": "react-scripts-kotlin eject",
