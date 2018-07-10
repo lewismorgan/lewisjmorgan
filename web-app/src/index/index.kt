@@ -6,16 +6,15 @@ import kotlinext.js.requireAll
 import react.dom.render
 import react.dom.script
 import react.router.dom.browserRouter
-import react.router.dom.route
-import react.router.dom.switch
 import kotlin.browser.document
 
+@Suppress("UnsafeCastFromDynamic")
 fun main(args: Array<String>) {
   @Suppress("UnsafeCastFromDynamic")
   require("bootstrap/dist/css/bootstrap.css")
   require("@fortawesome/fontawesome-free/css/all.css")
   require("@fortawesome/fontawesome-free/js/all.js")
-  requireAll(require.context("src", true, js("/\\.css$/")))
+  requireAll(require.context("src/scss", false, js("/\\.css$/")))
   render(document.getElementById("root")) {
     browserRouter {
       child(WebsiteComponent::class) {}

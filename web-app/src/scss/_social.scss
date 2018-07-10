@@ -1,0 +1,18 @@
+.social-icon-anim {
+  transition: transform .25s linear;
+  &:hover {
+    transform: scale(1.25);
+  }
+}
+
+.facebook-icon:hover {
+  color: #3B5998
+}
+
+.twitter-icon:hover {
+  color: #1DA1F2;
+}
+
+.linkedin-icon:hover {
+  color: #0077B5
+}
