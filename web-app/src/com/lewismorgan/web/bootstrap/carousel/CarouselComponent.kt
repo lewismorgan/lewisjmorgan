@@ -3,7 +3,6 @@ package com.lewismorgan.web.bootstrap.carousel
 import com.lewismorgan.web.misc.getChildren
 import kotlinx.html.A
 import kotlinx.html.attributesMapOf
-import kotlinx.html.classes
 import kotlinx.html.js.onClickFunction
 import org.w3c.dom.events.Event
 import react.RBuilder

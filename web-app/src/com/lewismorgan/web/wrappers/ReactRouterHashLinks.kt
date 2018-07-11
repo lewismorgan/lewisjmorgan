@@ -1,6 +1,6 @@
 @file:JsModule("react-router-hash-link")
 
-package com.lewismorgan.web.misc
+package com.lewismorgan.web.wrappers
 
 import org.w3c.dom.Element
 import org.w3c.dom.events.Event
@@ -12,6 +12,7 @@ import react.RState
 external class NavHashLinkComponent : Component<NavHashLinkProps, RState> {
   override fun render(): dynamic
 }
+
 external interface NavHashLinkProps : RProps {
   var to: String
   var onClick: (Event) -> Unit

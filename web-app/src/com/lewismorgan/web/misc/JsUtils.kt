@@ -1,17 +1,7 @@
 package com.lewismorgan.web.misc
 
-import kotlinext.js.asJsObject
 import org.w3c.dom.Document
 import org.w3c.dom.Element
-import org.w3c.dom.events.Event
-import react.RBuilder
-import react.RComponent
-import react.RHandler
-import react.RProps
-import react.RState
-import react.ReactElement
-import react.children
-import kotlin.browser.window
 
 /**
  * Created by lewis on 6/23/18.
@@ -31,40 +21,6 @@ fun <T> chainedFunction(vararg functions: (T) -> Unit): (T) -> Unit {
       func.apply { acc(it) }
     }
   }
-}
-
-/**
- * Return a list of all the children elements for the receiver. A single element in the children is
- * transformed to an array automatically for type safety.
- * @receiver RComponent<P, S>
- * @return Array<ReactElement>
- */
-fun <P : RProps, S : RState> RComponent<P, S>.getChildren(): Array<ReactElement> {
-  return if (jsIsArray(props.children)) {
-    props.children.unsafeCast<Array<ReactElement>>()
-  } else {
-    // If there is a single element, it's not known as an array just an object
-    arrayOf(props.children.unsafeCast<ReactElement>())
-  }
-}
-
-fun RBuilder.navHashLink(to: String,
-                         className: String? = null,
-                         activeClassName: String = "active",
-                         onClick: ((Event) -> Unit)? = null,
-                         scroll: ((Element) -> Unit)? = null,
-                         handler: RHandler<NavHashLinkProps>) = child<NavHashLinkProps, NavHashLinkComponent> {
-  attrs {
-    this.to = to
-    this.className = className
-    this.activeClassName = activeClassName
-    this.smooth = true
-    if (onClick != null)
-      this.onClick = onClick
-    if (scroll != null)
-      this.scroll = scroll
-  }
-  handler.invoke(this)
 }
 
 fun getScrollTop(document: Document): Double {

@@ -1,6 +1,12 @@
 package com.lewismorgan.web
 
+import com.lewismorgan.web.bootstrap.dsl.container
 import com.lewismorgan.web.bootstrap.nav.navigationItem
+import com.lewismorgan.web.children.FontAwesomeSize
+import com.lewismorgan.web.children.FontAwesomeStyleType
+import com.lewismorgan.web.children.fontAwesome
+import com.lewismorgan.web.misc.getSmoothScrollingHandler
+import com.lewismorgan.web.wrappers.navHashLink
 import kotlinx.html.id
 import react.RBuilder
 import react.RComponent
@@ -16,11 +22,11 @@ class WebsiteComponent : RComponent<RProps, RState>() {
   override fun RBuilder.render() {
     child(WebsiteNavbarComponent::class) {
       attrs.collapsedMenuShown = true
-      navigationItem("#home", "Home")
-      navigationItem("#quotes", "Inspiration")
-      navigationItem("#projects", "Projects")
-      navigationItem("#education", "Education")
-      navigationItem("#contact", "Contact")
+      renderNavSectionItem("#home", "Home")
+      renderNavSectionItem("#quotes", "Inspiration")
+      renderNavSectionItem("#projects", "Projects")
+      renderNavSectionItem("#education", "Education")
+      renderNavSectionItem("#contact", "Contact")
     }
     div {
       attrs.id = "home"
@@ -47,11 +53,20 @@ class WebsiteComponent : RComponent<RProps, RState>() {
     renderCopyright()
   }
 
+  private fun RBuilder.renderNavSectionItem(href: String, name: String) {
+    navigationItem {
+      // TODO: NavHashLinks broken for active status see https://github.com/rafrex/react-router-hash-link/issues/29
+      navHashLink("/$href", className = "nav-link", activeClassName = "active", scroll = getSmoothScrollingHandler()) {
+        +name
+      }
+    }
+  }
+
   private fun RBuilder.renderCopyright() {
     section {
       attrs.id = "copyright"
       div("copyright text-center py-4 bg-dark text-white") {
-        div("container") {
+        container {
           small("footer-notes") {
             span {
               +"Copyright "

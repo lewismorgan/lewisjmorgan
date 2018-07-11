@@ -1,5 +1,6 @@
 package com.lewismorgan.web.bootstrap.carousel
 
+import com.lewismorgan.web.bootstrap.dsl.container
 import react.RBuilder
 import react.RComponent
 import react.RProps
@@ -19,7 +20,7 @@ class CarouselItemComponent : RComponent<CarouselItemProps, RState>() {
   override fun RBuilder.render() {
     @Suppress("SENSELESS_COMPARISON")
     div("carousel-item ${if (props.isActive) "active" else ""} ${if (props.classes != null) props.classes else ""}") {
-      div("container") {
+      container {
         children()
       }
     }

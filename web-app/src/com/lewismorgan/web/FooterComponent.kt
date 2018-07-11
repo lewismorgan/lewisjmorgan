@@ -1,8 +1,12 @@
 package com.lewismorgan.web
 
+import com.lewismorgan.web.bootstrap.dsl.container
+import com.lewismorgan.web.bootstrap.dsl.footer
+import com.lewismorgan.web.children.FontAwesomeSize
+import com.lewismorgan.web.children.FontAwesomeStyleType
+import com.lewismorgan.web.children.fontAwesome
 import kotlinx.html.DIV
 import kotlinx.html.UL
-import kotlinx.html.style
 import react.RBuilder
 import react.RComponent
 import react.RProps
@@ -10,7 +14,6 @@ import react.RState
 import react.dom.RDOMBuilder
 import react.dom.a
 import react.dom.div
-import react.dom.footer
 import react.dom.h4
 import react.dom.li
 import react.dom.p
@@ -39,8 +42,8 @@ class FooterComponent : RComponent<RProps, RState>() {
   }
 
   override fun RBuilder.render() {
-    footer("footer text-center") {
-      div("container") {
+    footer("text-center") {
+      container {
         div("row justify-content-md-center") {
           div("col-md-6") {
             h4 { +"Location" }
