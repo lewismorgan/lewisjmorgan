@@ -1,56 +1,22 @@
 This project was bootstrapped with [Create React Kotlin App](https://github.com/JetBrains/create-react-kotlin-app).
 
-Below you will find some useful information on how to work with this application.<br>
-We're still working on this guide and you can find its most recent version [here](https://github.com/JetBrains/create-react-kotlin-app/blob/master/packages/react-scripts/template/README.md).
-
-## Sending Feedback
-
-We are always open to [your feedback](https://youtrack.jetbrains.com/issues/CRKA).
+This folder contains all the necessary files in order to serve the frontend website. Since there is no backend (as of yet), it is easy to play around with it yourself. The goal for this web application is to demonstrate my experience and learn more about modern web technologies and Kotlin.
 
 ## Folder Structure
 
-After creation, your project should look like this:
+Because the web application is bootstrapped with create-react-kotlin-app, there is no need for any custom webpack processes since it's handled by the kotlin webpack scripts. The same limitations apply:
+* public - Any static content to be served I put here, like the favicon, index, manifests, etc.
+* src - All Kotlin files are kept inside here. I avoid putting anything else but kotlin files because I want to use gulp to handle the 'extra stuff'. Otherwise I would need to eject if I want to customize the Kotlin Webpack for stuff like pre-processors and uglify.
+* scss - All Sass files are input here instead of the src folder, otherwise Kotlin Webpack would try to serve all the scss files. Having a top-level directory defeats needing to eject and modify webpack scripts while retaining all the functionality of create-react-kotlin-app.
 
-```
-my-app/
-  README.md
-  node_modules/
-  package.json
-  .gitignore
-  public/
-    favicon.ico
-    index.html
-    manifest.json
-  src/
-    app/
-      App.css
-      App.kt
-    index/
-      index.css
-      index.kt
-    logo/
-      kotlin.svg
-      Logo.css
-      Logo.kt
-      react.svg
-    ticker/
-      Ticker.kt
-```
-
-For the project to build, **these files must exist with exact filenames**:
-
-* `public/index.html` is the page template;
-
-You can delete or rename the other files.
-
-You may create subdirectories inside `src`. For faster rebuilds, only files inside `src` are processed by Webpack.<br>
-You need to **put any Kotlin and CSS files inside `src`**, or Webpack won’t see them.
-
-Only files inside `public` can be used from `public/index.html`.<br>
-Read instructions below for using assets from JavaScript and HTML.
-
-You can, however, create more top-level directories.<br>
-They will not be included in the production build so you can use them for things like documentation.
+### Source Folder Structure
+As mentioned, I'm keeping **only** Kotlin classes within the src folder, similar to how there is a direct distinction in standard Java and Kotlin server applications with a resources folder. Here's the package breakdown:
+* com/lewismorgan/web - Topmost package for components, root contains the sections
+  * bootstrap - Components that are wrapping the bootstrap CSS classes, similar to what react-bootstrap module does except in Kotlin that can be used properly in React. Only Bootstrap components that I use/used have a React implementation.
+  * children - Any subcompontents that are necessary for the website to function that are not "pages"
+  * misc - Utility classes like extensions that I am too lazy to put somewhere else/couldn't find somewhere else to put them
+  * wrappers - Kotlin DSL's and classes that wrap an external JavaScript library like react-router-hash-links. Naming convention follows the name of the node module, with Dsl if necessary.
+* index - Required and used by create-react-kotlin-app for injecting JavaScript into the index.
 
 ## Available Scripts
 
@@ -58,10 +24,11 @@ Once the installation is done, you can run some commands inside the project fold
 
 ### `npm start` or `yarn start`
 
-Runs the app in development mode.<br>
+Runs the app in development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload automatically when you make edits.<br>
+The page will reload automatically when you make edits. This will NOT listen for Sass changes, another process must be run.
+
 You will see build errors and lint warnings in the console.
 
 ### `npm run build` or `yarn build`
@@ -69,24 +36,23 @@ You will see build errors and lint warnings in the console.
 Builds the app for production to the `build` folder.<br>
 It ensures that React is bundled in production mode and the build is optimized for best performance.
 
-The build is minified and the filenames include hashes for cache management. Your app is ready to be deployed.
+The build is minified and the filenames include hashes for cache management.
 
-### `npm run eject`
+### `gulp`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Cleans and builds the application's CSS, minifying the final CSS from Sass.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### `gulp watch`
 
-Running `npm run eject` copies all configuration files and transitive dependencies (webpack, Kotlin Compiler, etc) right into your project so you have full control over them. Commands like `npm start` and `npm run build` will still work, but they will point to the copied scripts so you can tweak them. At this point, you’re on your own.
+Watches the scss folder for any changes, use for development on the stylesheets with a local server from npm.
 
-## Debugging the App
+### `gulp clean`
 
-You can debug the running app right in IntelliJ IDEA Ultimate using its built-in JavaScript debugger. The IDE will run a new instance of Chrome and attach a debugger to it.
+Deletes src/stylesheets folder
 
-Start your app by running `npm start`. Put the breakpoints in your Kolin code.
-Then select `Debug in Chrome` from the list of run/debug configurations on the top-right and click the green debug icon or press `^D` on macOS or `F9` on Windows and Linux to start debugging.
+### `gulp styles`
 
-Currently, debugging is supported only in IntelliJ IDEA Ultimate 2017.3.
+Compiles Sass stylesheets in scss into src/stylesheets
 
-You can also debug your application using the developer tools in your browser.
-
+## License
+All rights reserved to Lewis Morgan unless otherwise required.
