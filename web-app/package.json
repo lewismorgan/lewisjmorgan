@@ -1,6 +1,6 @@
 {
-  "name": "web-app",
-  "version": "0.1.0",
+  "name": "lewisjmorgan-app",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.1.0",
@@ -31,7 +31,7 @@
   },
   "scripts": {
     "build-css": "node-sass-chokidar scss/ -o src/",
-    "watch-css": "npm run build-css && node-sass-chokidar scss/ -o src/index/ --watch --recursive",
+    "watch-css": "npm run build-css && node-sass-chokidar scss/ -o src/ --watch --recursive",
     "start": "npm run build-css && react-scripts-kotlin start",
     "build": "npm run build-css && react-scripts-kotlin build",
     "eject": "react-scripts-kotlin eject",
