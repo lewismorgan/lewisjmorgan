@@ -32,8 +32,8 @@
   "scripts": {
     "build-css": "node-sass-chokidar scss/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar scss/ -o src/index/ --watch --recursive",
-    "start": "react-scripts-kotlin start",
-    "build": "react-scripts-kotlin build",
+    "start": "npm run build-css && react-scripts-kotlin start",
+    "build": "npm run build-css && react-scripts-kotlin build",
     "eject": "react-scripts-kotlin eject",
     "gen-idea-libs": "react-scripts-kotlin gen-idea-libs",
     "get-types": "react-scripts-kotlin get-types --dest=src/types"
