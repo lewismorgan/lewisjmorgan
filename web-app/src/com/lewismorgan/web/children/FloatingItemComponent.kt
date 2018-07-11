@@ -16,6 +16,7 @@ import kotlin.browser.window
 interface FloatingItemProps : RProps {
   var classes: String
   var displayScrollOffset: Int
+  var onShown: (Event) -> Unit
 }
 
 interface FloatingItemState : RState {
@@ -53,12 +54,19 @@ class FloatingItemComponent(props: FloatingItemProps) : RComponent<FloatingItemP
     }
   }
 
+  private fun onShown() {
+    props.onShown.invoke()
+  }
+
   override fun RBuilder.render() {
-    if (state.displayed) {
-      container("floating-item-container") {
-        children()
-      }
+    container("floating-item ${if (state.displayed) "floating-item-shown" else "floating-item-hidden"}") {
+      children()
     }
+//    if (state.displayed) {
+//      container("floating-item-container") {
+//        children()
+//      }
+//    }
   }
 }
 

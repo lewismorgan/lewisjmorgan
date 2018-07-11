@@ -88,11 +88,12 @@ class WebsiteNavbarComponent(props: WebsiteNavbarProps) : RComponent<WebsiteNavb
         }
       }
     }
+    
     // TODO Move to own component and/or function depending on how advance I wanna make the falcon
     floatingItem {
       attrs.classes = ""
       attrs.displayScrollOffset = 50
-      navHashLink("#home", className = "btn btn-outline-light jump-top-nav-btn text-center", scroll = getSmoothScrollingHandler()) {
+      navHashLink("#home", className = "btn btn-outline-light btn-lightspeed text-center", scroll = getSmoothScrollingHandler()) {
         i("swg swg-falcon-2 swg-4x") {}
       }
     }

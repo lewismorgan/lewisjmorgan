@@ -1,5 +1,11 @@
 /* Floating Components */
-.floating-item-container {
+.floating-item {
   position: fixed;
   z-index: 9999;
+  &-shown {
+    display: inherit;
+  }
+  &-hidden {
+    display: none;
+  }
 }

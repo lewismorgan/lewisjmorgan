@@ -21,14 +21,21 @@
   color: black;
 }
 
-/* Lightspeed! */
-.jump-top-nav-btn {
+/* Lightspeed is the only true way */
+.btn-lightspeed {
   position: inherit;
   bottom: 5rem;
   right: 1rem;
   height: 5rem;
   width: 5rem;
   font-size: large;
+  transition: color ease-in-out 5s;
+  &-shown {
+    color: gold;
+  }
+  &-hidden {
+    color: $primary
+  }
 }
 
 .list-stack {
