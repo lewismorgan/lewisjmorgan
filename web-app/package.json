@@ -37,9 +37,8 @@
     "npm-check": "^5.7.1"
   },
   "scripts": {
-    "pre-build": "npm run gulp",
-    "start": "npm run pre-build && react-scripts-kotlin start",
-    "build": "npm run pre-build && react-scripts-kotlin build",
+    "start": "gulp && react-scripts-kotlin start",
+    "build": "gulp && react-scripts-kotlin build",
     "eject": "react-scripts-kotlin eject",
     "gen-idea-libs": "react-scripts-kotlin gen-idea-libs",
     "get-types": "react-scripts-kotlin get-types --dest=src/types"
