@@ -1,11 +1,14 @@
 /* Floating Components */
 .floating-item {
   position: fixed;
-  z-index: 9999;
+  z-index: 9999 !important;
+  transition: visibility 0.5s, opacity 0.5s ease-in-out;
   &-shown {
-    display: inherit;
+    visibility: visible;
+    opacity: 1
   }
   &-hidden {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
   }
 }

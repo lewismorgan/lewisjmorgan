@@ -9,6 +9,7 @@ import react.RHandler
 import react.RProps
 import react.RState
 import react.ReactElement
+import react.dom.div
 import react.setState
 import kotlin.browser.document
 import kotlin.browser.window
@@ -16,7 +17,6 @@ import kotlin.browser.window
 interface FloatingItemProps : RProps {
   var classes: String
   var displayScrollOffset: Int
-  var onShown: (Event) -> Unit
 }
 
 interface FloatingItemState : RState {
@@ -54,19 +54,10 @@ class FloatingItemComponent(props: FloatingItemProps) : RComponent<FloatingItemP
     }
   }
 
-  private fun onShown() {
-    props.onShown.invoke()
-  }
-
   override fun RBuilder.render() {
-    container("floating-item ${if (state.displayed) "floating-item-shown" else "floating-item-hidden"}") {
+    div("floating-item ${if (state.displayed) "floating-item-shown" else "floating-item-hidden"} ${props.classes}") {
       children()
     }
-//    if (state.displayed) {
-//      container("floating-item-container") {
-//        children()
-//      }
-//    }
   }
 }
 

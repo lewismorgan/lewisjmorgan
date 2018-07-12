@@ -18,24 +18,18 @@
 
 .btn-outline-light {
   border-color: black;
-  color: black;
 }
 
 /* Lightspeed is the only true way */
-.btn-lightspeed {
-  position: inherit;
+.floating-lightspeeder {
   bottom: 5rem;
-  right: 1rem;
-  height: 5rem;
-  width: 5rem;
+  right: 2rem;
   font-size: large;
-  transition: color ease-in-out 5s;
-  &-shown {
-    color: gold;
-  }
-  &-hidden {
-    color: $primary
-  }
+}
+
+.btn-floating-lightspeeder {
+  color: whitesmoke;
+  -webkit-text-stroke: .025rem black;
 }
 
 .list-stack {
