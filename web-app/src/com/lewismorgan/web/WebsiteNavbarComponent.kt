@@ -17,7 +17,6 @@ import react.RBuilder
 import react.RComponent
 import react.RProps
 import react.RState
-import react.dom.div
 import react.dom.i
 import react.setState
 import kotlin.browser.window
@@ -89,7 +88,7 @@ class WebsiteNavbarComponent(props: WebsiteNavbarProps) : RComponent<WebsiteNavb
         }
       }
     }
-    
+
     // TODO Move to own component and/or function depending on how advance I wanna make the falcon
     floatingItem {
       attrs.classes = "floating-lightspeeder"
