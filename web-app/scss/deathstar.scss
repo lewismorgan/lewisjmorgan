@@ -18,17 +18,21 @@
 
 .btn-outline-light {
   border-color: black;
-  color: black;
 }
 
-/* Lightspeed! */
-.jump-top-nav-btn {
-  position: inherit;
+/* Lightspeed is the only true way */
+.floating-lightspeeder {
   bottom: 5rem;
-  right: 1rem;
-  height: 5rem;
-  width: 5rem;
+  right: 2rem;
   font-size: large;
+}
+
+.btn-floating-lightspeeder {
+  color: whitesmoke;
+  -webkit-text-stroke: .025rem black;
+  :hover {
+    color: rgb(255, 255, 200);
+  }
 }
 
 .list-stack {
