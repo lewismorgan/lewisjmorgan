@@ -30,6 +30,9 @@
 .btn-floating-lightspeeder {
   color: whitesmoke;
   -webkit-text-stroke: .025rem black;
+  :hover {
+    color: rgb(255, 255, 200);
+  }
 }
 
 .list-stack {
