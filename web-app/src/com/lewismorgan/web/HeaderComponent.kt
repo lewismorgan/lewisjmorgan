@@ -1,9 +1,9 @@
 package com.lewismorgan.web
 
 import com.lewismorgan.web.bootstrap.dsl.container
-import com.lewismorgan.web.children.FontAwesomeStyleType
-import com.lewismorgan.web.children.fontAwesome
-import com.lewismorgan.web.children.gravatar
+import com.lewismorgan.web.fragments.FontAwesomeStyleType
+import com.lewismorgan.web.fragments.fontAwesome
+import com.lewismorgan.web.fragments.gravatar
 import react.RBuilder
 import react.RComponent
 import react.RProps

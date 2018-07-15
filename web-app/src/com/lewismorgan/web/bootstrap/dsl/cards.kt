@@ -1,6 +1,7 @@
 package com.lewismorgan.web.bootstrap.dsl
 
 import kotlinx.html.DIV
+import kotlinx.html.classes
 import react.dom.RDOMBuilder
 import react.dom.div
 
@@ -10,8 +11,10 @@ fun RDOMBuilder<DIV>.card(block: RDOMBuilder<DIV>.() -> Unit) {
   }
 }
 
-fun RDOMBuilder<DIV>.cardHeader(block: RDOMBuilder<DIV>.() -> Unit) {
-  div("card-header") {
+fun RDOMBuilder<DIV>.cardHeader(classes: String? = null, block: RDOMBuilder<DIV>.() -> Unit) {
+  div {
+    attrs.classes += "card-header"
+    classes?.run { attrs.classes += this }
     block()
   }
 }

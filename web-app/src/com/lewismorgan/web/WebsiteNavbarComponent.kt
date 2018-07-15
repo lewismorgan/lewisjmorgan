@@ -7,9 +7,9 @@ import com.lewismorgan.web.bootstrap.nav.navbar
 import com.lewismorgan.web.bootstrap.nav.navbarBrand
 import com.lewismorgan.web.bootstrap.nav.navbarCollapse
 import com.lewismorgan.web.bootstrap.nav.navbarToggler
-import com.lewismorgan.web.children.FontAwesomeStyleType
-import com.lewismorgan.web.children.floatingItem
-import com.lewismorgan.web.children.fontAwesome
+import com.lewismorgan.web.fragments.FontAwesomeStyleType
+import com.lewismorgan.web.fragments.floatingItem
+import com.lewismorgan.web.fragments.fontAwesome
 import com.lewismorgan.web.misc.getSmoothScrollingHandler
 import com.lewismorgan.web.wrappers.navHashLink
 import org.w3c.dom.events.Event

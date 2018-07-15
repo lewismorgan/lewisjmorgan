@@ -1,4 +1,4 @@
-package com.lewismorgan.web.children
+package com.lewismorgan.web.fragments
 
 import react.RBuilder
 import react.RComponent
