@@ -11,7 +11,6 @@ import kotlin.browser.document
 @Suppress("UnsafeCastFromDynamic")
 fun main(args: Array<String>) {
   @Suppress("UnsafeCastFromDynamic")
-  require("bootstrap/dist/css/bootstrap.css")
   require("@fortawesome/fontawesome-free/css/all.css")
   require("@fortawesome/fontawesome-free/js/all.js")
   requireAll(require.context("src/stylesheets", true, js("/\\.css$/")))

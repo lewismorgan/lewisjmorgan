@@ -1,6 +1,5 @@
-package com.lewismorgan.web.children
+package com.lewismorgan.web.fragments
 
-import com.lewismorgan.web.bootstrap.dsl.container
 import com.lewismorgan.web.misc.getScrollTop
 import org.w3c.dom.events.Event
 import react.RBuilder
@@ -9,6 +8,7 @@ import react.RHandler
 import react.RProps
 import react.RState
 import react.ReactElement
+import react.dom.div
 import react.setState
 import kotlin.browser.document
 import kotlin.browser.window
@@ -54,10 +54,8 @@ class FloatingItemComponent(props: FloatingItemProps) : RComponent<FloatingItemP
   }
 
   override fun RBuilder.render() {
-    if (state.displayed) {
-      container("floating-item-container") {
-        children()
-      }
+    div("floating-item ${if (state.displayed) "floating-item-shown" else "floating-item-hidden"} ${props.classes}") {
+      children()
     }
   }
 }

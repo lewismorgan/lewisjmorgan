@@ -2,14 +2,16 @@ package com.lewismorgan.web
 
 import com.lewismorgan.web.bootstrap.dsl.container
 import com.lewismorgan.web.bootstrap.nav.navigationItem
-import com.lewismorgan.web.children.FontAwesomeSize
-import com.lewismorgan.web.children.FontAwesomeStyleType
-import com.lewismorgan.web.children.fontAwesome
+import com.lewismorgan.web.fragments.FontAwesomeSize
+import com.lewismorgan.web.fragments.FontAwesomeStyleType
+import com.lewismorgan.web.fragments.fontAwesome
 import com.lewismorgan.web.misc.getSmoothScrollingHandler
 import com.lewismorgan.web.wrappers.navHashLink
 import kotlinx.html.id
+import react.Component
 import react.RBuilder
 import react.RComponent
+import react.RHandler
 import react.RProps
 import react.RState
 import react.dom.a
@@ -17,39 +19,26 @@ import react.dom.div
 import react.dom.section
 import react.dom.small
 import react.dom.span
+import kotlin.reflect.KClass
 
 class WebsiteComponent : RComponent<RProps, RState>() {
   override fun RBuilder.render() {
     child(WebsiteNavbarComponent::class) {
       attrs.collapsedMenuShown = true
       renderNavSectionItem("#home", "Home")
-      renderNavSectionItem("#quotes", "Inspiration")
+      renderNavSectionItem("#quotes", "Quotes")
+      renderNavSectionItem("#about", "About")
       renderNavSectionItem("#projects", "Projects")
-      renderNavSectionItem("#education", "Education")
       renderNavSectionItem("#contact", "Contact")
     }
-    div {
-      attrs.id = "home"
-      child(HeaderComponent::class) {}
-    }
-    div {
-      attrs.id = "quotes"
-      child(WelcomeComponent::class) {}
-    }
+    renderSection("home", HeaderComponent::class) {}
+    renderSection("quotes", WelcomeComponent::class) {}
     // the main contents for website
-    div("mb-5 mt-5") {
-      attrs.id = "projects"
-      child(ProjectsComponent::class) {}
-    }
-    div {
-      attrs.id = "education"
-      child(EducationComponent::class) {}
-    }
-    div {
-      attrs.id = "contact"
-      child(ContactComponent::class) {}
-    }
-    child(FooterComponent::class) {}
+    div("mb-5 mt-5") {}
+    renderSection("about", AboutComponent::class) {}
+    renderSection("props", ProjectsComponent::class) {}
+    renderSection("contact", ContactComponent::class) {}
+    renderSection("footer", FooterComponent::class) {}
     renderCopyright()
   }
 
@@ -59,6 +48,13 @@ class WebsiteComponent : RComponent<RProps, RState>() {
       navHashLink("/$href", className = "nav-link", activeClassName = "active", scroll = getSmoothScrollingHandler()) {
         +name
       }
+    }
+  }
+
+  private fun <C : Component<RProps, *>> RBuilder.renderSection(id: String, klazz: KClass<C>, handler: RHandler<RProps>) {
+    div {
+      attrs.id = id
+      child(klazz, handler)
     }
   }
 

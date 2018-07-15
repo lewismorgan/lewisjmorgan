@@ -18,10 +18,6 @@ function clean() {
 function styles() {
   return gulp.src(paths.styles.src)
     .pipe(sass())
-    .pipe(cleanCSS())
-    .pipe(rename({
-      suffix: '.min'
-    }))
     .pipe(gulp.dest(paths.styles.dest));
 }
 
