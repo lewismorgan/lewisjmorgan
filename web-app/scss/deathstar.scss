@@ -1,3 +1,4 @@
+@import "../node_modules/bootstrap/scss/bootstrap";
 @import "variables";
 @import "navigation";
 @import "header";
@@ -42,3 +43,15 @@
 }
 
 // .list-stack-item
+
+.card-header-about {
+  padding: 0.25rem 1.75rem;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.about-list-group {
+  @include media-breakpoint-up(md) {
+    width: 100%
+  }
+}
