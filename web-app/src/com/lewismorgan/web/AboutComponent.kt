@@ -36,7 +36,7 @@ private fun RBuilder.renderInterests() {
   div("card-text") {
     p {
       +" Among studying technology, my main points of interests are in programming for multi-platform systems, abstraction of systems, "
-      +"all things Star Wars, religiously following developments in the new frontier, and avidly stalking Lord Elon Musk without regrets. "
+      +"all things Star Wars, religiously following developments in the new frontier, and avidly following Lord Elon Musk. "
     }
   }
 }
@@ -56,6 +56,10 @@ private fun RBuilder.renderEducation() {
       }
       li(listItemClasses) {
         +"Kotlin"
+      }
+      li(listItemClasses) {
+        +"Swift"
+        fontAwesome("apple", FontAwesomeStyleType.BRAND)
       }
       li(listItemClasses) {
         +"Python"
