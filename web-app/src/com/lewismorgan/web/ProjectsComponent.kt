@@ -24,10 +24,9 @@ class ProjectsComponent : RComponent<RProps, RState>() {
   override fun RBuilder.render() {
     container {
       div("row justify-content-md-center") {
-        // TODO Move projects into data store
         renderProjectItem("lewisjmorgan", "Source code for my portfolio site", "lewisjmorgan")
+        renderProjectItem("Holodex", "An iOS app that tells you information from SWAPI.co", "Holodex")
         renderProjectItem("Harvester Droid", "Manage your resources across a number of Star Wars Galaxies resource trackers", "HarvesterDroid")
-        renderProjectItem("Malzahar", "A reactive Kotlin library for Riot Games' League of Legends API", "Malzahar")
       }
     }
   }
