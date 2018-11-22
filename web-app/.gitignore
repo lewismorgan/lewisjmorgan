@@ -2,9 +2,9 @@
 # Preprocessor used
 *.css
 *.css.map
+!/public/starwars-glyphicons/css/*.css
 #############
 
-package-lock.json
 # dependencies
 /node_modules
 
