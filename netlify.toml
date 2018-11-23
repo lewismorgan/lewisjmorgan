@@ -7,7 +7,7 @@
 
 [build]
   base    = "web-app"
-  publish = "web-app/public"
+  publish = "build"
   command = "npm run prod"
 
 # Deploy Preview context: Production Previews
