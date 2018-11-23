@@ -13,7 +13,6 @@ fun main(args: Array<String>) {
   @Suppress("UnsafeCastFromDynamic")
   require("@fortawesome/fontawesome-free/css/all.css")
   require("@fortawesome/fontawesome-free/js/all.js")
-  requireAll(require.context("src/stylesheets", true, js("/\\.css$/")))
   render(document.getElementById("root")) {
     browserRouter {
       child(WebsiteComponent::class) {}
