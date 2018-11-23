@@ -22,4 +22,4 @@
 # will take these settings and override their
 # current ones.
 [context.develop]
-  command = "npm run dev"
+  command = "npm run prod"
