@@ -1,0 +1,25 @@
+# Global settings applied to the whole site.  
+# 
+# “publish” is the directory to publish (relative to root of your repo),
+# “command” is your build command,
+# “base” is directory to change to before starting build. if you set base:
+#    that is where we will look for package.json/.nvmrc/etc not repo root!
+
+[build]
+  base    = "web-app"
+  publish = "web-app/public"
+  command = "npm run prod"
+
+# Deploy Preview context: Production Previews
+[context.deploy-preview]
+  command = "npm run prod"
+
+# Branch Deploy context: Development Previews
+[context.branch-deploy]
+  command = "npm run dev"
+
+# Specific branch context: Deploys from this branch
+# will take these settings and override their
+# current ones.
+[context.develop]
+  command = "npm run dev"

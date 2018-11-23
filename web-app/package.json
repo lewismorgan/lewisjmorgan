@@ -37,7 +37,9 @@
   },
   "scripts": {
     "start": "gulp && react-scripts-kotlin start",
-    "build": "gulp prod && react-scripts-kotlin build",
+    "build": "react-scripts-kotlin build",
+    "dev": "gulp && react-scripts-kotlin build",
+    "prod": "gulp prod && react-scripts-kotlin build",
     "eject": "react-scripts-kotlin eject",
     "gen-idea-libs": "react-scripts-kotlin gen-idea-libs",
     "get-types": "react-scripts-kotlin get-types --dest=src/types"
