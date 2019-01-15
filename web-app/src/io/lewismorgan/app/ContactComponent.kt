@@ -5,10 +5,8 @@ import io.lewismorgan.app.bootstrap.dsl.container
 import kotlinx.html.classes
 import react.RBuilder
 import react.RComponent
-import react.RHandler
 import react.RProps
 import react.RState
-import react.ReactElement
 
 class ContactComponent : RComponent<RProps, RState>() {
   override fun RBuilder.render() {
