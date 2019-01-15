@@ -1,1 +1,4 @@
 .DS_STORE
+web-app/\.idea/dictionaries/
+
+web-app/\.idea/markdown-exported-files\.xml
