@@ -8,18 +8,24 @@
 [build]
   base    = "web-app"
   publish = "web-app/build"
-  command = "npm run prod"
+  command = "yarn release"
 
 # Deploy Preview context: Production Previews
 [context.deploy-preview]
-  command = "npm run prod"
+  command = "yarn build"
 
 # Branch Deploy context: Development Previews
 [context.branch-deploy]
-  command = "npm run dev"
+  command = "yarn build"
 
 # Specific branch context: Deploys from this branch
 # will take these settings and override their
 # current ones.
 [context.develop]
-  command = "npm run prod"
+  command = "yarn build"
+
+[context.preview]
+  command = "yarn release"
+
+[context.master]
+  command = "yarn release"
