@@ -10,8 +10,8 @@ import react.RState
 
 class ContactComponent : RComponent<RProps, RState>() {
   override fun RBuilder.render() {
-    container {
-      attrs.classes += "twitter-feed"
+    container("contact") {
+
     }
   }
 }
