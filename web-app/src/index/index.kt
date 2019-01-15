@@ -1,8 +1,7 @@
 package index
 
-import com.lewismorgan.web.WebsiteComponent
+import io.lewismorgan.app.WebsiteComponent
 import kotlinext.js.require
-import kotlinext.js.requireAll
 import react.dom.render
 import react.dom.script
 import react.router.dom.browserRouter

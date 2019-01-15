@@ -4,44 +4,55 @@ var sourcemaps = require('gulp-sourcemaps');
 var del = require('del');
 
 const paths = {
-  styles: {
+  sass: {
     src: 'stylesheets/**/*.scss',
     dest: 'public/css'
   }
 };
 
-const sassOptions = {
-  errLogToConsole: true,
-  outputStyle: 'expanded'
+const options = {
+  sass: {
+    errLogToConsole: true,
+    outputStyle: 'expanded'
+  }
 };
 
-function clean() {
-  return del(paths.styles.dest);
-}
-
-function stylesheets() {
-  return gulp.src(paths.styles.src)
+// Development build cycle for Sass files
+function sassBuild() {
+  return gulp.src(paths.sass.src)
     .pipe(sourcemaps.init())
-    .pipe(sass(sassOptions).on('error', sass.logError))
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest(paths.styles.dest));
+    .pipe(sass(options.sass).on('error', sass.logError))
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest(paths.sass.dest));
 }
 
-function watch() {
-  gulp.watch(paths.styles.src, sass);
-}
-
-function prod() {
-  return gulp.src(paths.styles.src)
+// Release cycle for Sass processing
+function sassRelease() {
+  return gulp.src(paths.sass.src)
     .pipe(sass({outputStyle: 'compressed'}))
-    .pipe(gulp.dest(paths.styles.dest));
+    .pipe(gulp.dest(paths.sass.dest));
 }
 
-gulp.task('clean', clean);
-gulp.task('sass', stylesheets);
-gulp.task('watch', watch);
-gulp.task('prod', prod);
+function sassClean() {
+  return del(paths.sass.dest);
+}
 
-var build = gulp.series(clean, stylesheets);
-gulp.task('build', build);
-gulp.task('default', build);
+function sassWatch() {
+  gulp.watch(paths.sass.src, sass);
+}
+
+// Sass Specific Tasks
+
+gulp.task('sass-clean', sassClean);
+gulp.task('sass-build', sassBuild);
+gulp.task('sass-watch', sassWatch);
+gulp.task('sass-release', sassRelease);
+
+// Core Tasks
+
+gulp.task('watch', gulp.series('sass-watch'));
+gulp.task('clean', gulp.series('sass-clean'));
+gulp.task('release', gulp.series('sass-release'));
+
+gulp.task('build', gulp.series('clean', 'sass-build'));
+gulp.task('default', gulp.task('build'));

@@ -18,5 +18,4 @@ This repository contains all the source code for my website. Right now there is 
 * JavaScript
 * HTML
 * Gulp
-* Continous Integration (Circle CI)
 * Continous Deployment (Netlify)
