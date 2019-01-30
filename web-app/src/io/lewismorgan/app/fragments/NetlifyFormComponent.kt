@@ -19,6 +19,7 @@ class NetlifyFormComponent(props: NetlifyFormProps): RComponent<NetlifyFormProps
     form {
       attrs["name"] = props.formName
       attrs["data-netlify"] = "true"
+      attrs["data-netlify-honeypot"] = "bot-field"
       attrs["method"] = "POST"
       input(InputType.hidden, name = "form-name") {
         attrs["value"] = props.formName
