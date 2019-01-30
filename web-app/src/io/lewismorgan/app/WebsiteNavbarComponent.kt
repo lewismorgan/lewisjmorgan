@@ -76,7 +76,7 @@ class WebsiteNavbarComponent(props: WebsiteNavbarProps) : RComponent<WebsiteNavb
     navbar("navbar-expand-lg navbar-dark fixed-top bg-dark ${if (state.scrollMinimized) "navbar-shrink" else ""}") {
       container {
         navbarBrand("#") {
-          fontAwesome("map-marked-alt", FontAwesomeStyleType.SOLID)
+          +"LewisMorgan.io"
         }
         navbarToggler(state.collapsed, onClickToggler()) {}
         navbarCollapse(!state.collapsed) {

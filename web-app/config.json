@@ -7,33 +7,15 @@
   "ascent": 850,
   "glyphs": [
     {
-      "uid": "6cc7af3e5b55720bcb6ef68372ce24be",
-      "css": "facebook-official",
-      "code": 62000,
-      "src": "fontawesome"
-    },
-    {
       "uid": "4743b088aa95d6f3b6b990e770d3b647",
       "css": "facebook-squared",
       "code": 62216,
       "src": "fontawesome"
     },
     {
-      "uid": "8e04c98c8f5ca0a035776e3001ad2638",
-      "css": "facebook",
-      "code": 61594,
-      "src": "fontawesome"
-    },
-    {
       "uid": "906348dc798a0d42715cc97c875e3ac6",
       "css": "twitter-squared",
       "code": 62212,
-      "src": "fontawesome"
-    },
-    {
-      "uid": "627abcdb627cb1789e009c08e2678ef9",
-      "css": "twitter",
-      "code": 61593,
       "src": "fontawesome"
     },
     {
@@ -64,6 +46,36 @@
       "uid": "921e3974e54ff9e8b7cd906a3dc74636",
       "css": "direction",
       "code": 61732,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "1145676a91138011729fa2909997af66",
+      "css": "linkedin-squared",
+      "code": 62220,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "9c1376672bb4f1ed616fdd78a23667e9",
+      "css": "comment-empty",
+      "code": 61669,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "4a74a0f87d4089efe7aba1825bff4193",
+      "css": "copyright",
+      "code": 61945,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "0f6a2573a7b6df911ed199bb63717e27",
+      "css": "github-circled",
+      "code": 61595,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "8aff323697468c4a63993cde00386ec6",
+      "css": "windows",
+      "code": 61818,
       "src": "fontawesome"
     }
   ]

@@ -4,6 +4,7 @@ import io.lewismorgan.app.bootstrap.dsl.container
 import io.lewismorgan.app.fragments.FontAwesomeStyleType
 import io.lewismorgan.app.fragments.fontAwesome
 import io.lewismorgan.app.fragments.gravatar
+import io.lewismorgan.app.fragments.iconFont
 import react.RBuilder
 import react.RComponent
 import react.RProps
@@ -28,11 +29,11 @@ class HeaderComponent : RComponent<RProps, RState>() {
           ul("list-stack") {
             li("list-stack-item") {
               span { +"Student " }
-              fontAwesome("user-graduate", FontAwesomeStyleType.SOLID)
+              iconFont("graduation-cap")
             }
             li("list-stack-item") {
               span { +"Developer " }
-              fontAwesome("code", FontAwesomeStyleType.SOLID)
+              iconFont("code")
             }
             li("list-stack-item") {
               span { +"Star Wars Fanatic " }
