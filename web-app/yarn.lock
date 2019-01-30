@@ -18,11 +18,6 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
-"@fortawesome/fontawesome-free@~5.7.0":
-  version "5.7.0"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.7.0.tgz#d28fd6248837ae5142c567f7ff50605824207e34"
-  integrity sha512-jLikKhTPgYTY/IFIBwkPSh2JME5xK0b9DqXmTdlG/SUbMW0siHIJ+GLPTebL8qHO5R6xOth0uPHBL5/oZ7BeEQ==
-
 "@gulp-sourcemaps/identity-map@1.X":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@gulp-sourcemaps/identity-map/-/identity-map-1.0.2.tgz#1e6fe5d8027b1f285dc0d31762f566bccd73d5a9"
@@ -5311,13 +5306,6 @@ obuf@^1.0.0, obuf@^1.1.2:
   resolved "https://registry.yarnpkg.com/obuf/-/obuf-1.1.2.tgz#09bea3343d41859ebd446292d11c9d4db619084e"
   integrity sha512-PX1wu0AmAdPqOL1mWhqmlOd8kOIZQwGZw6rh7uby9fTc5lhaOWFLX3I6R1hrF9k3zUY40e6igsLGkDXK92LJNg==
 
-octicons@~8.3.0:
-  version "8.3.0"
-  resolved "https://registry.yarnpkg.com/octicons/-/octicons-8.3.0.tgz#88206818d8b531317ede7d5e1bb53beee62b7a9e"
-  integrity sha512-zyc72Pz2TV4Ae3pcrmy9zUhG9QFU1CtS682Cp6fV4o36fskN+RJsaA1L5bFg6xMASDPX+glnjv0B7Tp1uz6J5A==
-  dependencies:
-    object-assign "^4.1.1"
-
 on-finished@~2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/on-finished/-/on-finished-2.3.0.tgz#20f1336481b083cd75337992a16971aa2d906947"
@@ -6854,11 +6842,6 @@ signal-exit@^3.0.0, signal-exit@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
   integrity sha1-tf3AjxKH6hF4Yo5BXiUTK3NkbG0=
-
-simple-icons@~1.9.14:
-  version "1.9.18"
-  resolved "https://registry.yarnpkg.com/simple-icons/-/simple-icons-1.9.18.tgz#1596ae9c50a2a0d6a86ff15bc136e24c215ee2e6"
-  integrity sha512-kF5Q4ljQxrKgypWu2loij3U7XpUcHUboyOXOm7WchA95QigDoWWTOS6/1lgfkuVdadHZ+VFHx8QqZA6pKifW2A==
 
 slash@^1.0.0:
   version "1.0.0"
