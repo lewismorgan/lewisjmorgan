@@ -37,7 +37,7 @@ class WebsiteComponent : RComponent<RProps, RState>() {
     div("mb-5 mt-5") {}
     renderSection("about", AboutComponent::class) {}
     renderSection("props", ProjectsComponent::class) {}
-    //renderSection("contact", ContactComponent::class) {}
+    renderSection("contact", ContactComponent::class) {}
     renderSection("footer", FooterComponent::class) {}
     renderCopyright()
   }
