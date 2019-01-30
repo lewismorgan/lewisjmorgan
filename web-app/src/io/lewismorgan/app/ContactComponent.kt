@@ -42,6 +42,7 @@ class ContactComponent : RComponent<RProps, RState>() {
             + "I'll reach out to you faster than Jar Jar gets his tongue caught by Qui-Gon... Long as you fill this out."
           }
           child(NetlifyFormComponent::class) {
+            attrs.formName = "contact"
             simpleInputFormItem("name", "Name/Company", InputType.text, "Your name or Company")
             simpleInputFormItem("email", "Email", InputType.email, "Email I can respond to")
             div("form-group") {
