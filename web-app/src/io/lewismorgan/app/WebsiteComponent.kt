@@ -2,9 +2,6 @@ package io.lewismorgan.app
 
 import io.lewismorgan.app.bootstrap.dsl.container
 import io.lewismorgan.app.bootstrap.nav.navigationItem
-import io.lewismorgan.app.fragments.FontAwesomeSize
-import io.lewismorgan.app.fragments.FontAwesomeStyleType
-import io.lewismorgan.app.fragments.fontAwesome
 import io.lewismorgan.app.fragments.iconFont
 import io.lewismorgan.app.misc.getSmoothScrollingHandler
 import io.lewismorgan.app.wrappers.navHashLink

@@ -2,9 +2,6 @@ package io.lewismorgan.app
 
 import io.lewismorgan.app.bootstrap.dsl.container
 import io.lewismorgan.app.bootstrap.dsl.footer
-import io.lewismorgan.app.fragments.FontAwesomeSize
-import io.lewismorgan.app.fragments.FontAwesomeStyleType
-import io.lewismorgan.app.fragments.fontAwesome
 import io.lewismorgan.app.fragments.iconFont
 import kotlinx.html.DIV
 import kotlinx.html.UL

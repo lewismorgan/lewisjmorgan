@@ -1,8 +1,6 @@
 package io.lewismorgan.app
 
 import io.lewismorgan.app.bootstrap.dsl.container
-import io.lewismorgan.app.fragments.FontAwesomeStyleType
-import io.lewismorgan.app.fragments.fontAwesome
 import io.lewismorgan.app.fragments.gravatar
 import io.lewismorgan.app.fragments.iconFont
 import react.RBuilder

@@ -4,8 +4,6 @@ import io.lewismorgan.app.bootstrap.dsl.card
 import io.lewismorgan.app.bootstrap.dsl.cardBody
 import io.lewismorgan.app.bootstrap.dsl.cardHeader
 import io.lewismorgan.app.bootstrap.dsl.container
-import io.lewismorgan.app.fragments.FontAwesomeStyleType
-import io.lewismorgan.app.fragments.fontAwesome
 import io.lewismorgan.app.fragments.iconFont
 import kotlinx.html.DIV
 import kotlinx.html.classes
