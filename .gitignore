@@ -2,3 +2,5 @@
 web-app/\.idea/dictionaries/
 
 web-app/\.idea/markdown-exported-files\.xml
+
+web-app/\.idea/checkstyle-idea\.xml
