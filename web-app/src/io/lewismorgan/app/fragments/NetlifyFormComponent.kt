@@ -12,7 +12,8 @@ interface NetlifyFormState: RState
 class NetlifyFormComponent(props: NetlifyFormProps): RComponent<NetlifyFormProps, NetlifyFormState>(props) {
   override fun RBuilder.render() {
     form {
-      attrs["netlify"] = ""
+      attrs["data-netlify"] = "true"
+      attrs["method"] = "POST"
       children()
     }
   }

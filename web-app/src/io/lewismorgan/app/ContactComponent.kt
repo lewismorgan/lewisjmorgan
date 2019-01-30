@@ -27,7 +27,7 @@ class ContactComponent : RComponent<RProps, RState>() {
         attrs["htmlFor"] = htmlFor
         +labelStr
       }
-      input(inputType, null, null, null, "form-control") {
+      input(inputType, null, null, htmlFor, "form-control") {
         attrs["placeholder"] = placeholder
       }
     }
@@ -50,6 +50,7 @@ class ContactComponent : RComponent<RProps, RState>() {
                 +"Message"
               }
               textArea("3", classes = "form-control"){
+                attrs.name = "message"
                 attrs["placeholder"] = "Hey Lewis, check out this dope \"Hello There\" Obi-Wan meme..."
               }
             }
