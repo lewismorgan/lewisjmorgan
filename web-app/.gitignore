@@ -3,6 +3,9 @@
 *.css
 *.css.map
 !/public/starwars-glyphicons/css/*.css
+
+public/font/fontello.*
+.idea/libraries
 #############
 
 # dependencies
