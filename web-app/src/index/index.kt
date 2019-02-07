@@ -10,8 +10,6 @@ import kotlin.browser.document
 @Suppress("UnsafeCastFromDynamic")
 fun main(args: Array<String>) {
   @Suppress("UnsafeCastFromDynamic")
-  require("@fortawesome/fontawesome-free/css/all.css")
-  require("@fortawesome/fontawesome-free/js/all.js")
   render(document.getElementById("root")) {
     browserRouter {
       child(WebsiteComponent::class) {}

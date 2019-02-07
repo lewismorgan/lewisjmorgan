@@ -2,11 +2,16 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var del = require('del');
+var fontello = require('gulp-fontello')
 
 const paths = {
   sass: {
     src: 'stylesheets/**/*.scss',
     dest: 'public/css'
+  },
+  glyphs: {
+    src: 'config.json',
+    dest: 'public'
   }
 };
 
@@ -16,6 +21,13 @@ const options = {
     outputStyle: 'expanded'
   }
 };
+
+// Icon glyphs
+function glyphs() {
+  return gulp.src(paths.glyphs.src)
+    .pipe(fontello())
+    .pipe(gulp.dest(paths.glyphs.dest))
+}
 
 // Development build cycle for Sass files
 function sassBuild() {
@@ -41,6 +53,9 @@ function sassWatch() {
   gulp.watch(paths.sass.src, sass);
 }
 
+// Glyph Specific Tasks
+gulp.task('glyphs', glyphs);
+
 // Sass Specific Tasks
 
 gulp.task('sass-clean', sassClean);
@@ -52,7 +67,8 @@ gulp.task('sass-release', sassRelease);
 
 gulp.task('watch', gulp.series('sass-watch'));
 gulp.task('clean', gulp.series('sass-clean'));
-gulp.task('release', gulp.series('sass-release'));
 
-gulp.task('build', gulp.series('clean', 'sass-build'));
+gulp.task('release', gulp.series('clean', 'glyphs', 'sass-release'));
+gulp.task('build', gulp.series('clean', 'glyphs', 'sass-build'));
+
 gulp.task('default', gulp.task('build'));

@@ -1,8 +1,6 @@
 {
-  "liveSassCompile.settings.excludeList": [
-    "**/node_modules/**",
-    ".vscode/**",
-    "src/**"
+  "liveSassCompile.settings.includeItems": [
+    "stylesheets/deathstar.scss"
   ],
   "liveSassCompile.settings.formats": [
     {

@@ -2,9 +2,7 @@ package io.lewismorgan.app
 
 import io.lewismorgan.app.bootstrap.dsl.container
 import io.lewismorgan.app.bootstrap.nav.navigationItem
-import io.lewismorgan.app.fragments.FontAwesomeSize
-import io.lewismorgan.app.fragments.FontAwesomeStyleType
-import io.lewismorgan.app.fragments.fontAwesome
+import io.lewismorgan.app.fragments.iconFont
 import io.lewismorgan.app.misc.getSmoothScrollingHandler
 import io.lewismorgan.app.wrappers.navHashLink
 import kotlinx.html.id
@@ -37,7 +35,7 @@ class WebsiteComponent : RComponent<RProps, RState>() {
     div("mb-5 mt-5") {}
     renderSection("about", AboutComponent::class) {}
     renderSection("props", ProjectsComponent::class) {}
-    //renderSection("contact", ContactComponent::class) {}
+    renderSection("contact", ContactComponent::class) {}
     renderSection("footer", FooterComponent::class) {}
     renderCopyright()
   }
@@ -67,7 +65,7 @@ class WebsiteComponent : RComponent<RProps, RState>() {
             span {
               +"Copyright "
             }
-            fontAwesome("copyright", FontAwesomeStyleType.REGULAR, FontAwesomeSize.XS)
+            iconFont("copyright")
             span {
               +" Lewis Morgan 2018. Source code is available on "
             }
@@ -75,7 +73,7 @@ class WebsiteComponent : RComponent<RProps, RState>() {
               +"GitHub"
             }
             span { +" " }
-            fontAwesome("github", FontAwesomeStyleType.BRAND, FontAwesomeSize.DEFAULT, "fa-fw") {}
+            iconFont("github-circled")
           }
         }
       }

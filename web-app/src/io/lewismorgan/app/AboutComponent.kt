@@ -4,8 +4,7 @@ import io.lewismorgan.app.bootstrap.dsl.card
 import io.lewismorgan.app.bootstrap.dsl.cardBody
 import io.lewismorgan.app.bootstrap.dsl.cardHeader
 import io.lewismorgan.app.bootstrap.dsl.container
-import io.lewismorgan.app.fragments.FontAwesomeStyleType
-import io.lewismorgan.app.fragments.fontAwesome
+import io.lewismorgan.app.fragments.iconFont
 import kotlinx.html.DIV
 import kotlinx.html.classes
 import react.RBuilder
@@ -46,28 +45,27 @@ private fun RBuilder.renderEducation() {
     p {
       +"I'm a student currently attending the University of South Florida, pursing a degree in "
       +"Business Analytics & Information Systems, also known as Management of Information Systems. "
-      +"From my studies and interests I've been able to perform comfortably with the following programming languages:"
+      +"From my studies and projects I've been able to perform comfortably with the following programming languages:"
     }
     ul("list-group about-list-group") {
       val listItemClasses = "list-group-item d-flex justify-content-between align-items-center"
       li(listItemClasses) {
         +"Java"
-        fontAwesome("java", FontAwesomeStyleType.BRAND)
+        iconFont("coffee")
       }
       li(listItemClasses) {
         +"Kotlin"
       }
       li(listItemClasses) {
         +"Swift"
-        fontAwesome("apple", FontAwesomeStyleType.BRAND)
+        iconFont("apple")
       }
       li(listItemClasses) {
         +"Python"
-        fontAwesome("python", FontAwesomeStyleType.BRAND)
       }
       li(listItemClasses) {
         +"VBA"
-        fontAwesome("windows", FontAwesomeStyleType.BRAND)
+        iconFont("windows")
       }
     }
   }

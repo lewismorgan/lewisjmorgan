@@ -6,9 +6,7 @@ import io.lewismorgan.app.bootstrap.nav.navbar
 import io.lewismorgan.app.bootstrap.nav.navbarBrand
 import io.lewismorgan.app.bootstrap.nav.navbarCollapse
 import io.lewismorgan.app.bootstrap.nav.navbarToggler
-import io.lewismorgan.app.fragments.FontAwesomeStyleType
 import io.lewismorgan.app.fragments.floatingItem
-import io.lewismorgan.app.fragments.fontAwesome
 import io.lewismorgan.app.misc.getSmoothScrollingHandler
 import io.lewismorgan.app.wrappers.navHashLink
 import org.w3c.dom.events.Event
@@ -76,7 +74,7 @@ class WebsiteNavbarComponent(props: WebsiteNavbarProps) : RComponent<WebsiteNavb
     navbar("navbar-expand-lg navbar-dark fixed-top bg-dark ${if (state.scrollMinimized) "navbar-shrink" else ""}") {
       container {
         navbarBrand("#") {
-          fontAwesome("map-marked-alt", FontAwesomeStyleType.SOLID)
+          +"LewisMorgan.io"
         }
         navbarToggler(state.collapsed, onClickToggler()) {}
         navbarCollapse(!state.collapsed) {
