@@ -4,7 +4,9 @@ package io.lewismorgan.app
 import io.lewismorgan.app.bootstrap.dsl.card
 import io.lewismorgan.app.bootstrap.dsl.cardBody
 import io.lewismorgan.app.bootstrap.dsl.container
+import io.lewismorgan.app.fragments.InputElement
 import io.lewismorgan.app.fragments.NetlifyFormComponent
+import io.lewismorgan.app.fragments.UserEntryType
 import kotlinx.html.ButtonType
 import kotlinx.html.InputType
 import react.RBuilder
@@ -43,6 +45,13 @@ class ContactComponent : RComponent<RProps, RState>() {
           }
           child(NetlifyFormComponent::class) {
             attrs.formName = "contact"
+            // InputElements should remain in order
+            attrs.inputElements = listOf(
+              InputElement(UserEntryType.TEXT, "name"),
+              InputElement(UserEntryType.TEXT, "email"),
+              InputElement(UserEntryType.TEXT_AREA, "message")
+            )
+
             simpleInputFormItem("name", "Name/Company", InputType.text, "Your name or Company")
             simpleInputFormItem("email", "Email", InputType.email, "Email I can respond to")
             div("form-group") {
