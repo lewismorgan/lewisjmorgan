@@ -8,6 +8,7 @@ import io.lewismorgan.app.fragments.InputElement
 import io.lewismorgan.app.fragments.NetlifyFormComponent
 import io.lewismorgan.app.fragments.UserEntryType
 import kotlinx.html.ButtonType
+import kotlinx.html.FormMethod
 import kotlinx.html.InputType
 import react.RBuilder
 import react.RComponent
@@ -51,7 +52,7 @@ class ContactComponent : RComponent<RProps, RState>() {
               InputElement(UserEntryType.TEXT, "email"),
               InputElement(UserEntryType.TEXT_AREA, "message")
             )
-
+            attrs.method = FormMethod.post
             simpleInputFormItem("name", "Name/Company", InputType.text, "Your name or Company")
             simpleInputFormItem("email", "Email", InputType.email, "Email I can respond to")
             div("form-group") {
