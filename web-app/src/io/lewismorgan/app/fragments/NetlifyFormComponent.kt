@@ -107,23 +107,23 @@ class NetlifyFormComponent(props: NetlifyFormProps): RComponent<NetlifyFormProps
 
   override fun RBuilder.render() {
     // hidden form that Netlify requires to function properly (maybe it's not needed with POST submit ...?)
-    form {
-      attrs["name"] = props.formName
-      attrs["data-netlify"] = "true"
-      attrs["data-netlify-honeypot"] = "bot-field"
-      attrs["hidden"] = Any()
-
-      // Create the hidden elements for Netlify based off of the InputElement's that are in the props
-      props.inputElements.forEach {
-        when(it.type) {
-          UserEntryType.EMAIL -> input(InputType.email, name = it.name) {}
-          UserEntryType.TEXT -> input(InputType.text, name = it.name) {}
-          UserEntryType.TEXT_AREA -> textArea {
-            attrs["name"] = it.name
-          }
-        }
-      }
-    }
+//    form {
+//      attrs["name"] = props.formName
+//      attrs["data-netlify"] = "true"
+//      attrs["data-netlify-honeypot"] = "bot-field"
+//      attrs["hidden"] = Any()
+//
+//      // Create the hidden elements for Netlify based off of the InputElement's that are in the props
+//      props.inputElements.forEach {
+//        when(it.type) {
+//          UserEntryType.EMAIL -> input(InputType.email, name = it.name) {}
+//          UserEntryType.TEXT -> input(InputType.text, name = it.name) {}
+//          UserEntryType.TEXT_AREA -> textArea {
+//            attrs["name"] = it.name
+//          }
+//        }
+//      }
+//    }
     form {
       attrs {
         name = props.formName
