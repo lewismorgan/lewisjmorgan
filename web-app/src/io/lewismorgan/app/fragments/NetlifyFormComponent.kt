@@ -1,8 +1,10 @@
 package io.lewismorgan.app.fragments
 
+import kotlinx.html.ButtonType
 import kotlinx.html.FormMethod
 import kotlinx.html.InputType
 import kotlinx.html.js.onChangeFunction
+import kotlinx.html.js.onClickFunction
 import org.w3c.dom.HTMLElement
 import org.w3c.dom.HTMLInputElement
 import org.w3c.dom.HTMLTextAreaElement
@@ -12,6 +14,7 @@ import react.RBuilder
 import react.RComponent
 import react.RProps
 import react.RState
+import react.dom.button
 import react.dom.form
 import react.dom.input
 import react.dom.textArea
@@ -53,10 +56,6 @@ class NetlifyFormComponent(props: NetlifyFormProps): RComponent<NetlifyFormProps
     }
 
     elementValues = items.toMap()
-  }
-
-  override fun componentDidUpdate(prevProps: NetlifyFormProps, prevState: NetlifyFormState, snapshot: Any) {
-//    console.log("NEW VALUES: \n${state.elementValues}")
   }
 
   private fun handleChange(event: Event) {
@@ -135,6 +134,10 @@ class NetlifyFormComponent(props: NetlifyFormProps): RComponent<NetlifyFormProps
         attrs["value"] = props.formName
       }
       children()
+      button(type = ButtonType.submit, classes = "btn btn-primary") {
+        +"Submit"
+        attrs.onClickFunction = { _ -> submitFormData() }
+      }
     }
   }
 }

@@ -65,9 +65,6 @@ class ContactComponent : RComponent<RProps, RState>() {
                 attrs["placeholder"] = "Hey Lewis, check out this dope \"Hello There\" Obi-Wan meme..."
               }
             }
-            button(type = ButtonType.submit, classes = "btn btn-primary") {
-              +"Send"
-            }
           }
         }
       }
