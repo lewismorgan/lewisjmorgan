@@ -42,7 +42,8 @@ class ContactComponent : RComponent<RProps, RState>() {
         h3("card-header") { +"Contact" }
         cardBody {
           h6("card-subtitle text-muted") {
-            + "I'll reach out to you faster than Jar Jar gets his tongue caught by Qui-Gon... Long as you fill this out."
+            // TODO: Move string up to props and pass in from WebsiteComponent
+            + "Wanna request a CV & Resume? I'll respond quicker than Jar Jar getting his tongue caught by Qui-Gon 🙌"
           }
           child(NetlifyFormComponent::class) {
             attrs.formName = "contact"
