@@ -67,7 +67,7 @@ class WebsiteComponent : RComponent<RProps, RState>() {
             }
             iconFont("copyright")
             span {
-              +" Lewis Morgan 2018. Source code is available on "
+              +" Lewis Morgan 2018-2019. Source code is available on "
             }
             a("https://github.com/lewismorgan/lewisjmorgan") {
               +"GitHub"

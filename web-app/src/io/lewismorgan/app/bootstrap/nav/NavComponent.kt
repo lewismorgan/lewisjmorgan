@@ -58,7 +58,6 @@ class NavComponent : RComponent<NavProps, NavState>() {
   }
 
   private fun onSelectNavItem(index: Int): (Event) -> Unit = {
-    console.log("NAV ITEM SELECTED")
     setState {
       activeIndex = index
     }

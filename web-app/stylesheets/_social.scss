@@ -1,7 +1,11 @@
+.social {
+  font-size: 1.75rem
+}
+
 .social-icon-anim {
   transition: transform .25s linear;
   &:hover {
-    transform: scale(1.25);
+    transform: scale(3rem);
   }
 }
 
