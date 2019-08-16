@@ -1,6 +1,18 @@
 This project was bootstrapped with [Create React Kotlin App](https://github.com/JetBrains/create-react-kotlin-app).
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/498a9851-2ba6-4738-b83c-d4e016fc6f47/deploy-status)](https://app.netlify.com/sites/lewisjmorgan/deploys)
+
 This folder contains all the necessary files in order to serve the frontend website. Since there is no backend (as of yet), it is easy to play around with it yourself. The goal for this web application is to demonstrate my experience and learn more about modern web technologies and Kotlin.
+
+## Website Locations
+
+* develop - Development react build published to [https://develop.lewismorgan.io](https://develop.lewismorgan.io)
+* preview - Production react build published to [https://preview.lewismorgan.io](https://preview.lewismorgan.io)
+* master - Live version of the site at [https://lewismorgan.io](https://lewismorgan.io) or [https://lewismorgan.dev](https://lewismorgan.dev)
+
+By splitting between a development and preview branch, I'm able to test out a full production build before it's merged to master.
+
+Pull requests are always development builds, since those will be merged into develop.
 
 ## Folder Structure
 

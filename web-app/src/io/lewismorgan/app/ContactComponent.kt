@@ -37,7 +37,7 @@ class ContactComponent : RComponent<RProps, RState>() {
   }
   
   override fun RBuilder.render() {
-    container("contact") {
+    container("contact mb-5") {
       card {
         h3("card-header") { +"Contact" }
         cardBody {
@@ -63,7 +63,7 @@ class ContactComponent : RComponent<RProps, RState>() {
               }
               textArea("3", classes = "form-control"){
                 attrs.name = "message"
-                attrs["placeholder"] = "Hey Lewis, check out this dope \"Hello There\" Obi-Wan meme..."
+                attrs["placeholder"] = "Hello There, check out this cool Obi-Wan meme!"
               }
             }
           }
