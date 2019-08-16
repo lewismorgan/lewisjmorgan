@@ -33,7 +33,7 @@ class FooterComponent : RComponent<RProps, RState>() {
       iconFont("comment-empty")
     }
     ul("list-inline") {
-      renderSocialItem("twitter", "twitter-squared", "https://twitter.com/LewisMorganIO")
+      renderSocialItem("twitter", "twitter-squared", "https://twitter.com/lewismorgan_01")
       renderSocialItem("github", "github-circled", "https://github.com/LewisMorgan")
     }
   }

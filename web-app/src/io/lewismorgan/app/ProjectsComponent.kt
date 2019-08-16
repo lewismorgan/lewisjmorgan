@@ -44,9 +44,9 @@ class ProjectsComponent : RComponent<RProps, RState>() {
           }
           a("https://www.github.com/lewismorgan/$projectId", classes = "btn btn-primary") { +"View on GitHub" }
         }
-        cardFooter {
-          span("text-muted") { +"Last commit was 2 days ago" }
-        }
+        // cardFooter {
+        //   span("text-muted") { +"Last commit was 2 days ago" }
+        // }
       }
     }
 
